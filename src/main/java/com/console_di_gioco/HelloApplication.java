@@ -1,4 +1,4 @@
-package com.example.console_di_gioco;
+package com.console_di_gioco;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
