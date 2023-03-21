@@ -10,7 +10,9 @@ module com.example.console_di_gioco {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
-    opens com to javafx.fxml;
-    exports com;
+    opens tris to javafx.fxml;
+    exports com.tris;
+    opens com.tris to javafx.fxml;
 }
