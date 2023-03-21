@@ -2,151 +2,31 @@ package com.forza4;
 
 public class campo {
 
-    private String[][] griglia = new String[6][6];
+    private int[][] griglia = new int[6][6];
 
 
     //costruttore
-    campo(String[][] grig) {
+    campo(int[][] grig) {
         grig = griglia;
     }
 
     //metodi
-    void inserisci(int y, String player) {
-        
+    void riempi(int y, int player) {
+
         int i;
-        
-        for(i=5; i == 0; i--)
+
+        for(i=6;i==0;i--)
         {
-            if(!griglia[i][y].equals("vuoto"))
-            {
-                griglia[i][y]=player;
-                i=0;
-            }
-        }
-    }
-
-    void controllaquattro()
-        {
-            int y,i;
-            int flagvittoria=0;
-
-            //controllo verticali
-            for(y=0;y<6;y++)
-            {
-                for(i=0;i<3;i++)
-                {
-                    if(griglia[i + 1][y].equals(griglia[i][y]))
-                    {
-                        if(griglia[i + 2][y].equals(griglia[i][y]))
-                        {
-                            if(griglia[i + 3][y].equals(griglia[i][y]))
-                            {
-                                flagvittoria=1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            //controllo orizzontali
-
-            if(flagvittoria==0)
-            {
-
-
-                for(i=0;i<6;i++)
-                {
-                    for(y=0;y<3;y++)
-                    {
-                        if(griglia[i][y + 1].equals(griglia[i][y]))
-                        {
-                            if(griglia[i][y + 2].equals(griglia[i][y]))
-                            {
-                                if(griglia[i][y + 3].equals(griglia[i][y]))
-                                {
-                                    flagvittoria=1;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-
-                //diagonali da sinistra a destra
-
-            if(flagvittoria==0)
-            {
-               for(i=3;i<6;i++)
-               {
-                   for(y=0;y<3;y++)
-                   {
-                       if (griglia[i - 1][y + 1].equals(griglia[i][y])) {
-                           if (griglia[i - 2][y + 2].equals(griglia[i][y])) {
-                               if (griglia[i - 3][y + 3].equals(griglia[i][y])) {
-                                   flagvittoria = 1;
-                               }
-                           }
-                       }
-                   }
-               }
-            }
-
-
-
-                //diagonali da destra a sinistra
-
-            if(flagvittoria==0)
-            {
-                for(y=3;y<6;y++)
-                {
-                    for(i=3;i<6;i++)
-                    {
-                        if (griglia[i - 1][y - 1].equals(griglia[i][y])) {
-                            if (griglia[i - 2][y - 2].equals(griglia[i][y])) {
-                                if (griglia[i - 3][y - 3].equals(griglia[i][y])) {
-                                    flagvittoria = 1;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-
-
-
-
-
+            if(griglia[i][y]!=0);
         }
 
-    void controllapari(){
-        int flag=0,i,y;
-
-        do
-        {
-            for(y=0;y<6;y++)
-            {
-                for (i = 0; i < 6; i++)
-                {
-                    if(griglia[y][i].equals("vuoto"))
-                    {
-                        flag=1;
-                    }
-                }
-            }
-        }while (flag==0);
-
     }
-
-
     void inizializza(){
-        int i,y;
-        for(y=0;y<6;y++) {
-            for (i = 0; i < 6; i++) {
-                griglia[y][i] = "vuoto";
+        int i;
 
-            }
-        }    
+        for(i=0;i<6;i++)
+        {
+            griglia[i][i]=0;
+        }
     }
 }
