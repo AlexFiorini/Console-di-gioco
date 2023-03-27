@@ -11,11 +11,11 @@ public class campo {
     }
 
     //metodi
-    void riempi(int y, String player) {
+    void inserisci(int y, String player) {
         
         int i;
         
-        for(i=5;i<0;i--)
+        for(i=5; i == 0; i--)
         {
             if(!griglia[i][y].equals("vuoto"))
             {
@@ -35,11 +35,11 @@ public class campo {
             {
                 for(i=0;i<3;i++)
                 {
-                    if(griglia[i+1][y]==griglia[i][y])
+                    if(griglia[i + 1][y].equals(griglia[i][y]))
                     {
-                        if(griglia[i+2][y]==griglia[i][y])
+                        if(griglia[i + 2][y].equals(griglia[i][y]))
                         {
-                            if(griglia[i+3][y]==griglia[i][y])
+                            if(griglia[i + 3][y].equals(griglia[i][y]))
                             {
                                 flagvittoria=1;
                             }
@@ -58,11 +58,11 @@ public class campo {
                 {
                     for(y=0;y<3;y++)
                     {
-                        if(griglia[i][y+1]==griglia[i][y])
+                        if(griglia[i][y + 1].equals(griglia[i][y]))
                         {
-                            if(griglia[i][y+2]==griglia[i][y])
+                            if(griglia[i][y + 2].equals(griglia[i][y]))
                             {
-                                if(griglia[i][y+3]==griglia[i][y])
+                                if(griglia[i][y + 3].equals(griglia[i][y]))
                                 {
                                     flagvittoria=1;
                                 }
@@ -81,9 +81,9 @@ public class campo {
                {
                    for(y=0;y<3;y++)
                    {
-                       if (griglia[i - 1][y + 1] == griglia[i][y]) {
-                           if (griglia[i - 2][y + 2] == griglia[i][y]) {
-                               if (griglia[i - 3][y + 3] == griglia[i][y]) {
+                       if (griglia[i - 1][y + 1].equals(griglia[i][y])) {
+                           if (griglia[i - 2][y + 2].equals(griglia[i][y])) {
+                               if (griglia[i - 3][y + 3].equals(griglia[i][y])) {
                                    flagvittoria = 1;
                                }
                            }
@@ -100,11 +100,11 @@ public class campo {
             {
                 for(y=3;y<6;y++)
                 {
-                    for(i=0;i<3;i++)
+                    for(i=3;i<6;i++)
                     {
-                        if (griglia[i + 1][y - 1] == griglia[i][y]) {
-                            if (griglia[i + 2][y - 2] == griglia[i][y]) {
-                                if (griglia[i + 3][y - 3] == griglia[i][y]) {
+                        if (griglia[i - 1][y - 1].equals(griglia[i][y])) {
+                            if (griglia[i - 2][y - 2].equals(griglia[i][y])) {
+                                if (griglia[i - 3][y - 3].equals(griglia[i][y])) {
                                     flagvittoria = 1;
                                 }
                             }
@@ -129,7 +129,7 @@ public class campo {
             {
                 for (i = 0; i < 6; i++)
                 {
-                    if(griglia[y][i]=="vuoto")
+                    if(griglia[y][i].equals("vuoto"))
                     {
                         flag=1;
                     }
