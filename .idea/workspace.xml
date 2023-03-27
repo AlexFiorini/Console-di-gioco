@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Realizzato tris finale, mancano ritocchi e leaderboard">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Cerchio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Croce.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/Fine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Fine.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

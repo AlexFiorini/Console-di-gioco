@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ public class Controller {
     Image croce = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Croce.png")));
     Image cerchio = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Cerchio.png")));
 
-    public void onClick(ActionEvent event) {
+    public void onClick(ActionEvent event) throws Exception {
         Button btn = (Button) event.getSource();
         btn.setTextFill(Color.WHITE);
         ImageView view;
@@ -60,12 +61,15 @@ public class Controller {
             button6.setDisable(true);
             button7.setDisable(true);
             button8.setDisable(true);
+            Fine fine = new Fine();
             if(vincitore.equals("Nessuno")) {
-                System.out.println("Pareggio");
+                fine.setVincitore(vincitore);
             } else {
-                System.out.println("Vince " + vincitore);
+                fine.setVincitore("Ha vinto " + vincitore);
             }
             //TODO: Aggiungi leaderboard
+
+            fine.start((Stage) button0.getScene().getWindow());
         }
         turno++;
     }
