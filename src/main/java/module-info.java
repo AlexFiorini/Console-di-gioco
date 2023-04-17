@@ -11,6 +11,6 @@ module com.example.console_di_gioco {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.console_di_gioco to javafx.fxml;
-    exports com.console_di_gioco;
+    opens com.forza4 to javafx.fxml;
+    exports com.forza4;
 }
