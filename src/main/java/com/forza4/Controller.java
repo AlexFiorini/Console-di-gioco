@@ -2,6 +2,7 @@ package com.forza4;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
 
 public class Controller {
     public Button[][] bottoni = new Button[6][7];
@@ -90,7 +91,7 @@ public class Controller {
     @FXML
     Button b56;
 
-    public void onClick() {
+    public void onClick(ActionEvent e) {
         System.out.println("Hello World!");
     }
 
