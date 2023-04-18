@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 
 public class Controller {
+    public boolean filled = false;
     public Button[][] bottoni = new Button[6][7];
     @FXML
     Button b00;
@@ -92,10 +93,13 @@ public class Controller {
     Button b56;
 
     public void onClick(ActionEvent e) {
+        if(filled)
+            init();
         System.out.println("Hello World!");
     }
 
-    /* bottoni[0][0] = b00;
+    public void init() {
+        bottoni[0][0] = b00;
         bottoni[0][1] = b01;
         bottoni[0][2] = b02;
         bottoni[0][3] = b03;
@@ -137,9 +141,6 @@ public class Controller {
         bottoni[5][4] = b54;
         bottoni[5][5] = b55;
         bottoni[5][6] = b56;
-
-        for(int i = 0; i < 6; i++)
-            for(int j = 0; j < 7; j++)
-                bottoni[i][j].setOnAction(e -> onClick()); */
+    }
 
 }
