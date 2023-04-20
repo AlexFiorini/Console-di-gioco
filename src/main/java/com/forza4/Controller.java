@@ -1,10 +1,8 @@
 package com.forza4;
 
-import com.almasb.fxgl.ui.DialogBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
-import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
