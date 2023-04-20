@@ -13,6 +13,7 @@ public class Controller {
     Image rosso = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Rosso.png")));
     Image blu = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Blu.png")));
     public boolean filled = false;
+    public Button np = new Button();
     public Button[][] bottoni = new Button[6][7];
     String turno = "Rosso";
     @FXML
@@ -107,6 +108,17 @@ public class Controller {
         }
         insert((Button) e.getSource());
         check();
+
+        if(e.getSource() == np)
+        {
+            for(int i=0; i<6; i++)
+            {
+                for(int j=0; j<7; j++)
+                {
+                    bottoni[i][j].setText("");
+                }
+            }
+        }
     }
 
     public void init() {
