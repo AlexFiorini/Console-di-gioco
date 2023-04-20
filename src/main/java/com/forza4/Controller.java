@@ -13,9 +13,12 @@ public class Controller {
     Image rosso = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Rosso.png")));
     Image blu = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Blu.png")));
     public boolean filled = false;
-    public Button np = new Button();
     public Button[][] bottoni = new Button[6][7];
     String turno = "Rosso";
+    @FXML
+    Button np;
+    @FXML
+    Button c;
     @FXML
     Button b00;
     @FXML
@@ -106,18 +109,20 @@ public class Controller {
             init();
             filled = true;
         }
-        insert((Button) e.getSource());
-        check();
 
-        if(e.getSource() == np)
-        {
-            for(int i=0; i<6; i++)
-            {
-                for(int j=0; j<7; j++)
-                {
+        if(e.getSource() == np) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 7; j++) {
                     bottoni[i][j].setText("");
+                    bottoni[i][j].setGraphic(null);
+                    bottoni[i][j].setDisable(false);
                 }
             }
+        } else if (e.getSource() == c){
+            // TODO: Mostra classifica
+        } else {
+            insert((Button) e.getSource());
+            check();
         }
     }
 
