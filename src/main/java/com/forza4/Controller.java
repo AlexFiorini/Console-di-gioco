@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 public class Controller {
     public boolean filled = false;
     public Button[][] bottoni = new Button[6][7];
+    String turno = "Rosso";
     @FXML
     Button b00;
     @FXML
@@ -93,9 +94,11 @@ public class Controller {
     Button b56;
 
     public void onClick(ActionEvent e) {
-        if(filled)
+        if(!filled) {
             init();
-        System.out.println("Hello World!");
+            filled = true;
+        }
+        insert((Button) e.getSource());
     }
 
     public void init() {
@@ -143,4 +146,26 @@ public class Controller {
         bottoni[5][6] = b56;
     }
 
+    public void insert(Button premuto) {
+        int colonna = ((int) premuto.getId().charAt(2)) - 48;
+
+        for(int i = 5; i >= 0; i--) {
+            if(bottoni[i][colonna].getText().equals("")) {
+                if(turno == "Rosso") {
+                    bottoni[i][colonna].setText("R");
+                    //bottoni[i][colonna].set
+                    turno = "Blu";
+                } else {
+                    bottoni[i][colonna].setText("B");
+                    turno = "Rosso";
+                }
+                bottoni[i][colonna].setDisable(true);
+                break;
+            }
+        }
+    }
+
+    public void check() {
+
+    }
 }
