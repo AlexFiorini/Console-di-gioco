@@ -1,8 +1,10 @@
 package com.forza4;
 
+import com.almasb.fxgl.ui.DialogBox;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -107,6 +109,7 @@ public class Controller {
             filled = true;
         }
         insert((Button) e.getSource());
+        check();
     }
 
     public void init() {
@@ -181,6 +184,67 @@ public class Controller {
     }
 
     public void check() {
+        for(int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (!bottoni[i][j].getText().equals("")) {
+                    if (i < 3) {
+                        if (j < 4) {
+                            if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
+                                if (bottoni[i][j].getText().equals("R")) {
+                                    System.out.println("Ha vinto il rosso");
+                                    disable();
+                                } else {
+                                    System.out.println("Ha vinto il blu");
+                                    disable();
+                                }
+                            }
+                        }
+                    }
+                    if (i > 2) {
+                        if (j < 4) {
+                            if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
+                                if (bottoni[i][j].getText().equals("R")) {
+                                    System.out.println("Ha vinto il rosso");
+                                    disable();
+                                } else {
+                                    System.out.println("Ha vinto il blu");
+                                    disable();
+                                }
+                            }
+                        }
+                    }
+                    if (j < 4) {
+                        if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
+                            if (bottoni[i][j].getText().equals("R")) {
+                                System.out.println("Ha vinto il rosso");
+                                disable();
+                            } else {
+                                System.out.println("Ha vinto il blu");
+                                disable();
+                            }
+                        }
+                    }
+                    if (i < 3) {
+                        if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
+                            if (bottoni[i][j].getText().equals("R")) {
+                                System.out.println("Ha vinto il rosso");
+                                disable();
+                            } else {
+                                System.out.println("Ha vinto il blu");
+                                disable();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    public void disable() {
+        for(int i = 0; i < 6; i++) {
+            for(int j = 0; j < 7; j++) {
+                bottoni[i][j].setDisable(true);
+            }
+        }
     }
 }
