@@ -1,0 +1,12 @@
+#bTris {
+    -fx-display: inline-block;
+    -fx-width: 100%;
+    -fx-height: 100%;
+    -fx-position: relative;
+    -fx-overflow: hidden;
+    -fx-background: #000;
+    -fx-border-radius: 5px;
+    -fx-cursor: pointer;
+    -fx-transition: all 0.3s ease;
+    -fx-background-image: url("/Immagini/tris.png");
+}

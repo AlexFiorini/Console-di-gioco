@@ -33,4 +33,6 @@ public class Controller {
         b2048.setGraphic(view4);
     }
 
+
+
 }
