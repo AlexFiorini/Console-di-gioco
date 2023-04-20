@@ -10,125 +10,127 @@ public class Interfaccia extends JFrame implements ActionListener {
     JPanel b = new JPanel();
 
     //------ Bottoni ------//
+    JButton[][] bottoni = new JButton[][];
+
     //Colonna A
-    JButton A1 = new JButton();
-    JButton A2 = new JButton();
-    JButton A3 = new JButton();
-    JButton A4 = new JButton();
-    JButton A5 = new JButton();
-    JButton A6 = new JButton();
-    JButton A7 = new JButton();
-    JButton A8 = new JButton();
-    JButton A9 = new JButton();
-    JButton A10 = new JButton();
+    JButton A1;
+    JButton A2;
+    JButton A3;
+    JButton A4;
+    JButton A5;
+    JButton A6;
+    JButton A7;
+    JButton A8;
+    JButton A9;
+    JButton A10;
 
     //Colonna B
-    JButton B1 = new JButton();
-    JButton B2 = new JButton();
-    JButton B3 = new JButton();
-    JButton B4 = new JButton();
-    JButton B5 = new JButton();
-    JButton B6 = new JButton();
-    JButton B7 = new JButton();
-    JButton B8 = new JButton();
-    JButton B9 = new JButton();
-    JButton B10 = new JButton();
+    JButton B1;
+    JButton B2;
+    JButton B3;
+    JButton B4;
+    JButton B5;
+    JButton B6;
+    JButton B7;
+    JButton B8;
+    JButton B9;
+    JButton B10;
 
     //Colonna C
-    JButton C1 = new JButton();
-    JButton C2 = new JButton();
-    JButton C3 = new JButton();
-    JButton C4 = new JButton();
-    JButton C5 = new JButton();
-    JButton C6 = new JButton();
-    JButton C7 = new JButton();
-    JButton C8 = new JButton();
-    JButton C9 = new JButton();
-    JButton C10 = new JButton();
+    JButton C1;
+    JButton C2;
+    JButton C3;
+    JButton C4;
+    JButton C5;
+    JButton C6;
+    JButton C7;
+    JButton C8;
+    JButton C9;
+    JButton C10;
 
     //Colonna D
-    JButton D1 = new JButton();
-    JButton D2 = new JButton();
-    JButton D3 = new JButton();
-    JButton D4 = new JButton();
-    JButton D5 = new JButton();
-    JButton D6 = new JButton();
-    JButton D7 = new JButton();
-    JButton D8 = new JButton();
-    JButton D9 = new JButton();
-    JButton D10 = new JButton();
+    JButton D1;
+    JButton D2;
+    JButton D3;
+    JButton D4;
+    JButton D5;
+    JButton D6;
+    JButton D7;
+    JButton D8;
+    JButton D9;
+    JButton D10;
 
     //Colonna E
-    JButton E1 = new JButton();
-    JButton E2 = new JButton();
-    JButton E3 = new JButton();
-    JButton E4 = new JButton();
-    JButton E5 = new JButton();
-    JButton E6 = new JButton();
-    JButton E7 = new JButton();
-    JButton E8 = new JButton();
-    JButton E9 = new JButton();
-    JButton E10 = new JButton();
+    JButton E1;
+    JButton E2;
+    JButton E3;
+    JButton E4;
+    JButton E5;
+    JButton E6;
+    JButton E7;
+    JButton E8;
+    JButton E9;
+    JButton E10;
 
     //Colonna F
-    JButton F1 = new JButton();
-    JButton F2 = new JButton();
-    JButton F3 = new JButton();
-    JButton F4 = new JButton();
-    JButton F5 = new JButton();
-    JButton F6 = new JButton();
-    JButton F7 = new JButton();
-    JButton F8 = new JButton();
-    JButton F9 = new JButton();
-    JButton F10 = new JButton();
+    JButton F1;
+    JButton F2;
+    JButton F3;
+    JButton F4;
+    JButton F5;
+    JButton F6;
+    JButton F7;
+    JButton F8;
+    JButton F9;
+    JButton F10;
 
     //Colonna G
-    JButton G1 = new JButton();
-    JButton G2 = new JButton();
-    JButton G3 = new JButton();
-    JButton G4 = new JButton();
-    JButton G5 = new JButton();
-    JButton G6 = new JButton();
-    JButton G7 = new JButton();
-    JButton G8 = new JButton();
-    JButton G9 = new JButton();
-    JButton G10 = new JButton();
+    JButton G1;
+    JButton G2;
+    JButton G3;
+    JButton G4;
+    JButton G5;
+    JButton G6;
+    JButton G7;
+    JButton G8;
+    JButton G9;
+    JButton G10;
 
     //Colonna H
-    JButton H1 = new JButton();
-    JButton H2 = new JButton();
-    JButton H3 = new JButton();
-    JButton H4 = new JButton();
-    JButton H5 = new JButton();
-    JButton H6 = new JButton();
-    JButton H7 = new JButton();
-    JButton H8 = new JButton();
-    JButton H9 = new JButton();
-    JButton H10 = new JButton();
+    JButton H1;
+    JButton H2;
+    JButton H3;
+    JButton H4;
+    JButton H5;
+    JButton H6;
+    JButton H7;
+    JButton H8;
+    JButton H9;
+    JButton H10;
 
     //Colonna I
-    JButton I1 = new JButton();
-    JButton I2 = new JButton();
-    JButton I3 = new JButton();
-    JButton I4 = new JButton();
-    JButton I5 = new JButton();
-    JButton I6 = new JButton();
-    JButton I7 = new JButton();
-    JButton I8 = new JButton();
-    JButton I9 = new JButton();
-    JButton I10 = new JButton();
+    JButton I1;
+    JButton I2;
+    JButton I3;
+    JButton I4;
+    JButton I5;
+    JButton I6;
+    JButton I7;
+    JButton I8;
+    JButton I9;
+    JButton I10;
 
     //Colonna J
-    JButton J1 = new JButton();
-    JButton J2 = new JButton();
-    JButton J3 = new JButton();
-    JButton J4 = new JButton();
-    JButton J5 = new JButton();
-    JButton J6 = new JButton();
-    JButton J7 = new JButton();
-    JButton J8 = new JButton();
-    JButton J9 = new JButton();
-    JButton J10 = new JButton();
+    JButton J1;
+    JButton J2;
+    JButton J3;
+    JButton J4;
+    JButton J5;
+    JButton J6;
+    JButton J7;
+    JButton J8;
+    JButton J9;
+    JButton J10;
     Interfaccia()
     {
         super("Battaglia navale");
