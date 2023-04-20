@@ -69,6 +69,66 @@ public class Interfaccia extends JFrame implements ActionListener {
     JButton E8 = new JButton();
     JButton E9 = new JButton();
     JButton E10 = new JButton();
+
+    //Colonna F
+    JButton F1 = new JButton();
+    JButton F2 = new JButton();
+    JButton F3 = new JButton();
+    JButton F4 = new JButton();
+    JButton F5 = new JButton();
+    JButton F6 = new JButton();
+    JButton F7 = new JButton();
+    JButton F8 = new JButton();
+    JButton F9 = new JButton();
+    JButton F10 = new JButton();
+
+    //Colonna G
+    JButton G1 = new JButton();
+    JButton G2 = new JButton();
+    JButton G3 = new JButton();
+    JButton G4 = new JButton();
+    JButton G5 = new JButton();
+    JButton G6 = new JButton();
+    JButton G7 = new JButton();
+    JButton G8 = new JButton();
+    JButton G9 = new JButton();
+    JButton G10 = new JButton();
+
+    //Colonna H
+    JButton H1 = new JButton();
+    JButton H2 = new JButton();
+    JButton H3 = new JButton();
+    JButton H4 = new JButton();
+    JButton H5 = new JButton();
+    JButton H6 = new JButton();
+    JButton H7 = new JButton();
+    JButton H8 = new JButton();
+    JButton H9 = new JButton();
+    JButton H10 = new JButton();
+
+    //Colonna I
+    JButton I1 = new JButton();
+    JButton I2 = new JButton();
+    JButton I3 = new JButton();
+    JButton I4 = new JButton();
+    JButton I5 = new JButton();
+    JButton I6 = new JButton();
+    JButton I7 = new JButton();
+    JButton I8 = new JButton();
+    JButton I9 = new JButton();
+    JButton I10 = new JButton();
+
+    //Colonna J
+    JButton J1 = new JButton();
+    JButton J2 = new JButton();
+    JButton J3 = new JButton();
+    JButton J4 = new JButton();
+    JButton J5 = new JButton();
+    JButton J6 = new JButton();
+    JButton J7 = new JButton();
+    JButton J8 = new JButton();
+    JButton J9 = new JButton();
+    JButton J10 = new JButton();
     Interfaccia()
     {
         super("Battaglia navale");
@@ -196,18 +256,6 @@ public class Interfaccia extends JFrame implements ActionListener {
         F9.addActionListener(this);
         F10.addActionListener(this);
 
-        //Colonna G
-        JButton G1 = new JButton();
-        JButton G2 = new JButton();
-        JButton G3 = new JButton();
-        JButton G4 = new JButton();
-        JButton G5 = new JButton();
-        JButton G6 = new JButton();
-        JButton G7 = new JButton();
-        JButton G8 = new JButton();
-        JButton G9 = new JButton();
-        JButton G10 = new JButton();
-
         G1.addActionListener(this);
         G2.addActionListener(this);
         G3.addActionListener(this);
@@ -218,18 +266,6 @@ public class Interfaccia extends JFrame implements ActionListener {
         G8.addActionListener(this);
         G9.addActionListener(this);
         G10.addActionListener(this);
-
-        //Colonna H
-        JButton H1 = new JButton();
-        JButton H2 = new JButton();
-        JButton H3 = new JButton();
-        JButton H4 = new JButton();
-        JButton H5 = new JButton();
-        JButton H6 = new JButton();
-        JButton H7 = new JButton();
-        JButton H8 = new JButton();
-        JButton H9 = new JButton();
-        JButton H10 = new JButton();
 
         H1.addActionListener(this);
         H2.addActionListener(this);
@@ -242,18 +278,6 @@ public class Interfaccia extends JFrame implements ActionListener {
         H9.addActionListener(this);
         H10.addActionListener(this);
 
-        //Colonna I
-        JButton I1 = new JButton();
-        JButton I2 = new JButton();
-        JButton I3 = new JButton();
-        JButton I4 = new JButton();
-        JButton I5 = new JButton();
-        JButton I6 = new JButton();
-        JButton I7 = new JButton();
-        JButton I8 = new JButton();
-        JButton I9 = new JButton();
-        JButton I10 = new JButton();
-
         I1.addActionListener(this);
         I2.addActionListener(this);
         I3.addActionListener(this);
@@ -264,18 +288,6 @@ public class Interfaccia extends JFrame implements ActionListener {
         I8.addActionListener(this);
         I9.addActionListener(this);
         I10.addActionListener(this);
-
-        //Colonna J
-        JButton J1 = new JButton();
-        JButton J2 = new JButton();
-        JButton J3 = new JButton();
-        JButton J4 = new JButton();
-        JButton J5 = new JButton();
-        JButton J6 = new JButton();
-        JButton J7 = new JButton();
-        JButton J8 = new JButton();
-        JButton J9 = new JButton();
-        JButton J10 = new JButton();
 
         J1.addActionListener(this);
         J2.addActionListener(this);
@@ -437,6 +449,6 @@ public class Interfaccia extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource() == )
+
     }
 }
