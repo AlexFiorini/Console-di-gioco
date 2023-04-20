@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-
 import java.util.Objects;
 
 public class Controller {
