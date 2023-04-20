@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Interfaccia i = new Interfaccia();
         i.setVisible(true);
-        i.setSize(400,400);
+        i.setSize(600,650);
+        i.setResizable(false);
     }
 }

@@ -11,6 +11,8 @@ public class Interfaccia extends JFrame implements ActionListener {
 
     //------ Bottoni ------//
     JButton[][] bottoni = new JButton[10][10];
+    JButton np = new JButton();
+    JButton c = new JButton();
 
     //------ Label ------//
     JLabel[] lettere = new JLabel[11];
@@ -27,7 +29,6 @@ public class Interfaccia extends JFrame implements ActionListener {
         //------------------- Campo da gioco ---------------//
         cg.setLayout(new GridLayout(11,11));
         add(cg, BorderLayout.CENTER);
-        add(b, BorderLayout.SOUTH);
 
         for(int i=0; i<11; i++)
         {
@@ -58,6 +59,16 @@ public class Interfaccia extends JFrame implements ActionListener {
                 cg.add(bottoni[i][j]);
             }
         }
+
+        //Pannello bottoni
+        add(b, BorderLayout.SOUTH);
+        b.setLayout(new FlowLayout());
+        b.add(np);
+        b.add(c);
+        np.setText("Nuova partita");
+        np.addActionListener(this);
+        c.setText("Classifica");
+        c.addActionListener(this);
     }
 
     @Override
@@ -65,4 +76,6 @@ public class Interfaccia extends JFrame implements ActionListener {
     {
 
     }
+
+
 }
