@@ -3,8 +3,16 @@ package com.forza4;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+
+import java.util.Objects;
 
 public class Controller {
+
+    Image rosso = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Rosso.png")));
+    Image blu = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Blu.png")));
     public boolean filled = false;
     public Button[][] bottoni = new Button[6][7];
     String turno = "Rosso";
@@ -151,14 +159,21 @@ public class Controller {
 
         for(int i = 5; i >= 0; i--) {
             if(bottoni[i][colonna].getText().equals("")) {
-                if(turno == "Rosso") {
+                bottoni[i][colonna].setTextFill(Color.WHITE);
+                ImageView view;
+                if(turno.equals("Rosso")) {
                     bottoni[i][colonna].setText("R");
-                    //bottoni[i][colonna].set
+                    view = new ImageView(rosso);
+                    bottoni[i][colonna].setGraphic(view);
                     turno = "Blu";
                 } else {
                     bottoni[i][colonna].setText("B");
+                    view = new ImageView(blu);
+                    bottoni[i][colonna].setGraphic(view);
                     turno = "Rosso";
                 }
+                view.setFitHeight(60);
+                view.setPreserveRatio(true);
                 bottoni[i][colonna].setDisable(true);
                 break;
             }
