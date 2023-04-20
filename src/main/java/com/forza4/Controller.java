@@ -108,6 +108,7 @@ public class Controller {
         if(!filled) {
             init();
             filled = true;
+            np.setDisable(true);
         }
 
         if(e.getSource() == np) {
@@ -118,11 +119,13 @@ public class Controller {
                     bottoni[i][j].setDisable(false);
                 }
             }
+            np.setDisable(true);
         } else if (e.getSource() == c){
             // TODO: Mostra classifica
         } else {
             insert((Button) e.getSource());
             check();
+            np.setDisable(true);
         }
     }
 
@@ -260,5 +263,6 @@ public class Controller {
                 bottoni[i][j].setDisable(true);
             }
         }
+        np.setDisable(false);
     }
 }
