@@ -8,5 +8,60 @@
     -fx-border-radius: 5px;
     -fx-cursor: pointer;
     -fx-transition: all 0.3s ease;
-    -fx-background-image: url("/Immagini/tris.png");
+    -fx-background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkjLHJ0uCR36qG6NgwGjB4ehGQBoHLlZkH2_EcNKCVbrzm5yeACks4Hq0iEF20GOl1uDQ&usqp=CAU");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #000;
+}
+
+#bForza4{
+    -fx-display: inline-block;
+    -fx-width: 100%;
+    -fx-height: 100%;
+    -fx-position: relative;
+    -fx-overflow: hidden;
+    -fx-background: #000;
+    -fx-border-radius: 5px;
+    -fx-cursor: pointer;
+    -fx-transition: all 0.3s ease;
+    -fx-background-image: url("https://play-lh.googleusercontent.com/NKmamImCGFnh5bBX5Gbx7OLIB7yJu1eRFhX88UWivxXuPtwWUz_JSXKHw_X1NcvepDeq");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #000;
+}
+
+#bBN{
+    -fx-display: inline-block;
+    -fx-width: 100%;
+    -fx-height: 100%;
+    -fx-position: relative;
+    -fx-overflow: hidden;
+    -fx-background: #000;
+    -fx-border-radius: 5px;
+    -fx-cursor: pointer;
+    -fx-transition: all 0.3s ease;
+    -fx-background-image: url("https://play-lh.googleusercontent.com/pNOBBFKQi_zoqU22bhdSLLTC3OKyLf0_stWIVf2nMl7aXXtUwPOEXWloPC3gkK5T_A");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #000;
+}
+
+#b2048{
+    -fx-display: inline-block;
+    -fx-width: 100%;
+    -fx-height: 100%;
+    -fx-position: relative;
+    -fx-overflow: hidden;
+    -fx-background: #000;
+    -fx-border-radius: 5px;
+    -fx-cursor: pointer;
+    -fx-transition: all 0.3s ease;
+    -fx-background-image: url("https://gabrielecirulli.github.io/2048/meta/og_image.png");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #000;
 }
