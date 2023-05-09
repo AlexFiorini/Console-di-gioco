@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import java.util.Objects;
 
 public class Controller {
@@ -19,6 +18,7 @@ public class Controller {
     public Button bBN = new Button();
     public Button b2048 = new Button();
 
+
     void InitImage()
     {
         ImageView view1, view2, view3, view4;
@@ -31,6 +31,22 @@ public class Controller {
         bBN.setGraphic(view3);
         view4 = new ImageView(i2048);
         b2048.setGraphic(view4);
+    }
+
+    @FXML
+    void onClick(ActionEvent e){
+        if(e.getSource() == bTris) {
+            new SceltaBot();
+        }
+        else if(e.getSource() == bForza4) {
+            new SceltaBot();
+        }
+        else if(e.getSource() == bBN) {
+            new SceltaBot();
+        }
+        else if(e.getSource() == b2048) {
+            new SceltaBot();
+        }
     }
 
 
