@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class SceltaBot {
 
-    Image utenteVSutente = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utenteVSutente.jpg")));
-    Image utenteVSbot = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utenteVSbot.jpg")));
+    Image utenteVSutente = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utente VS utente.jpg")));
+    Image utenteVSbot = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utente VS bot.jpg")));
 
     public Button bUvsU = new Button();
     public Button bUvsB = new Button();

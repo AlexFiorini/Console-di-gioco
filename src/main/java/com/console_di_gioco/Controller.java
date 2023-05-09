@@ -2,9 +2,16 @@ package com.console_di_gioco;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Objects;
 
 public class Controller {
@@ -17,7 +24,7 @@ public class Controller {
     public Button bForza4 = new Button();
     public Button bBN = new Button();
     public Button b2048 = new Button();
-
+    private int selected = 0;
 
     void InitImage()
     {
@@ -34,18 +41,28 @@ public class Controller {
     }
 
     @FXML
-    void onClick(ActionEvent e){
-        /*if(e.getSource() == bTris) {
-            new SceltaBot();
+    void onClick(ActionEvent e) throws IOException {
+
+        if(e.getSource() == bTris) {
+            selected = 1;
         }
         else if(e.getSource() == bForza4) {
-            new SceltaBot();
+            selected = 2;
         }
         else if(e.getSource() == bBN) {
-            new SceltaBot();
+            selected = 3;
         }
         else if(e.getSource() == b2048) {
-            new SceltaBot();
-        }*/
+            selected = 4;
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+        Stage stage = new Stage();
+        stage.setTitle("Scegli il bot");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+
+        Stage thisStage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        thisStage.setIconified(true);
     }
 }
