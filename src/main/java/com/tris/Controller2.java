@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 
 import java.util.*;
 
-public class Controller {
+public class Controller2 {
     int turno = 0;
     String vincitore = "";
     @FXML
@@ -35,7 +35,7 @@ public class Controller {
     char[][] board = new char[3][3];
     Image croce = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Croce.png")));
     Image cerchio = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Cerchio.png")));
-    String player2 = "hard";
+    String player2 = "medium";
 
     ImageView view;
 
@@ -51,6 +51,7 @@ public class Controller {
             } else if(turno < 8) {
                 switch (player2) {
                     case "easy" -> easyMove();
+                    case "medium" -> mediumMove();
                     case "hard" -> hardMove();
                 }
                 if(vince('O')) {
@@ -99,7 +100,7 @@ public class Controller {
         disegna(choice/3, choice%3);
     }
 
-    private void hardMove() {
+    private void mediumMove() {
         int choice;
         int [] coordinate = new int[2];
         boolean choiceMade = false;
@@ -166,6 +167,83 @@ public class Controller {
         }
     }
 
+    private void hardMove() {
+        System.out.println("Making move level \"hard\"");
+
+        char symbol;
+        symbol = 'O';
+        Move bestMove = minimax(2, 2);
+        board[bestMove.index[0]][bestMove.index[1]] = symbol;
+    }
+
+    private boolean gameState() {
+        boolean xWins = false;
+        boolean oWins = false;
+        boolean impossible = false;
+        boolean draw = false;
+        boolean inGame = true;
+        for (int i = 0; i < 3; i++) {
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+                if (board[0][i] == 'X') {
+                    xWins = true;
+                } else if (board[0][i] == 'O') {
+                    oWins = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                if (board[i][0] == 'X') {
+                    xWins = true;
+                } else if (board[i][0] == 'O'){
+                    oWins = true;
+                }
+            }
+        }
+
+        if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) || (board[2][0] == board[1][1] && board[1][1] == board[0][2])) {
+            if (board[1][1] == 'X') {
+                xWins = true;
+            } else if (board[1][1] == 'O') {
+                oWins = true;
+            }
+        }
+
+        int xCount = 0;
+        int oCount = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == 'X') {
+                    xCount++;
+                } else if (board[i][j] == 'O') {
+                    oCount++;
+                }
+            }
+        }
+        if (((xCount == 4 && oCount == 5) || (xCount == 5 && oCount == 4)) && (!xWins && !oWins)) {
+            draw = true;
+        } else if (xCount >= oCount + 2 || oCount >= xCount + 2) {
+            impossible = true;
+        }
+        if (xWins && oWins) {
+            impossible = true;
+        } else if (xWins) {
+            System.out.println("X wins");
+        } else if (oWins) {
+            System.out.println("O wins");
+        }
+        if (impossible) {
+            System.out.println("Impossible");
+        } else if (draw) {
+            System.out.println("Draw");
+        }
+
+        if (xWins || oWins || draw || impossible) inGame = false;
+
+        return inGame;
+    }
+
     private int[] seekWin(char symbol) {
         int row = -1;
         int column = -1;
@@ -213,6 +291,87 @@ public class Controller {
         return new int[] {row, column};
     }
 
+    private Move minimax(int callingPlayer, int currentPlayer) {
+        char enemySymbol = ' ';
+        char callingSymbol = ' ';
+        if (callingPlayer == 1) {
+            callingSymbol = 'X';
+            enemySymbol = 'O';
+        } else if (callingPlayer == 2) {
+            callingSymbol = 'O';
+            enemySymbol = 'X';
+        }
+
+        char symbol = ' ';
+        int enemyNumber = 0;
+        if (currentPlayer == 1) {
+            symbol = 'X';
+            enemyNumber = 2;
+        } else if (currentPlayer == 2) {
+            symbol = 'O';
+            enemyNumber = 1;
+        }
+        int[][] availableSpots = emptyIndexes();
+
+        if (vince(enemySymbol)) {
+            return new Move(-10);
+        } else if (vince(callingSymbol)) {
+            return new Move(10);
+        } else if (!areThereEmptyIndexes()) {
+            return new Move(0);
+        }
+        List<Move> moves = new ArrayList<>();
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (availableSpots[i][j] == 1) {
+                    Move move = new Move();
+                    move.index = new int[]{i, j};
+                    board[i][j] = symbol;
+                    Move result = minimax(callingPlayer, enemyNumber);
+                    move.score = result.score;
+                    board[i][j] = ' ';
+                    moves.add(move);
+                }
+            }
+        }
+
+        int bestMove = 0;
+
+        if (currentPlayer == callingPlayer) {
+            int bestScore = -10000;
+            for (int i = 0; i < moves.size(); i++) {
+                if (moves.get(i).score > bestScore) {
+                    bestScore = moves.get(i).score;
+                    bestMove = i;
+                }
+            }
+        } else {
+            int bestScore = 10000;
+            for (int i = 0; i < moves.size(); i++) {
+                if (moves.get(i).score < bestScore) {
+                    bestScore = moves.get(i).score;
+                    bestMove = i;
+                }
+            }
+        }
+        return moves.get(bestMove);
+    }
+
+    private int[][] emptyIndexes() {
+        int[][] empties = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    empties[i][j] = 1;
+                } else {
+                    empties[i][j] = 0;
+                }
+            }
+        }
+        return empties;
+    }
+
     private boolean vince(char symbol) {
         if(button0.getText().equals(button1.getText()) && button1.getText().equals(button2.getText()) && !button0.getText().equals("")){
             return button0.getText().charAt(0) == symbol;
@@ -235,5 +394,18 @@ public class Controller {
             return false;
         }
         return false;
+    }
+
+    private boolean areThereEmptyIndexes() {
+        boolean empties = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    empties = true;
+                    break;
+                }
+            }
+        }
+        return empties;
     }
 }

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Realizzato tris finale, mancano ritocchi e leaderboard">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/Game.java" afterDir="false" />
+    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Aggiunto bot">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" afterDir="false" />
     </list>
@@ -89,28 +89,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Tris__Bot",
-    "last_opened_file_path": "D:/Alex/Utenti/Alex/Documenti/Scuola/4INFA/Informatica/Java/Console-di-gioco",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Tris__Bot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Alex/Utenti/Alex/Documenti/Scuola/4INFA/Informatica/Java/Console-di-gioco&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alex.fiorini_isarome\IdeaProjects\Console_di_Gioco\src\main\resources\com\battaglia_navale\immagini\barche\Object4" />
       <recent name="C:\Users\alex.fiorini_isarome\IdeaProjects\Console_di_Gioco\src\main\resources\com\battaglia_navale" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Gioco">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Gioco" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tris.Gioco" />
       <module name="tris" />
@@ -124,9 +124,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.tris.Main" />
-      <module name="Console_di_Gioco" />
+      <module name="tris" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -272,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679406229808</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Aggiunto bot">
+      <created>1683535818167</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683535818167</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,18 +312,8 @@
     <MESSAGE value="Aggiunto Main" />
     <MESSAGE value="Modificata la Finestra" />
     <MESSAGE value="Realizzato tris finale, mancano ritocchi e leaderboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Realizzato tris finale, mancano ritocchi e leaderboard" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tris/Controller.java</url>
-          <line>251</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Aggiunto bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto bot" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
