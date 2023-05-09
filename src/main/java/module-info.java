@@ -9,7 +9,6 @@ module com.example.console_di_gioco {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
 
     opens com.console_di_gioco to javafx.fxml;
     exports com.console_di_gioco;
