@@ -35,7 +35,7 @@ public class Controller {
 
     @FXML
     void onClick(ActionEvent e){
-        if(e.getSource() == bTris) {
+        /*if(e.getSource() == bTris) {
             new SceltaBot();
         }
         else if(e.getSource() == bForza4) {
@@ -46,9 +46,6 @@ public class Controller {
         }
         else if(e.getSource() == b2048) {
             new SceltaBot();
-        }
+        }*/
     }
-
-
-
 }
