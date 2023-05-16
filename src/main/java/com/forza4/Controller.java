@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import java.util.Objects;
 
+import static java.lang.Math.random;
+
 public class Controller {
 
     Image rosso = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Rosso.png")));
@@ -126,6 +128,7 @@ public class Controller {
             insert((Button) e.getSource());
             check();
             np.setDisable(true);
+            insert((int) (random()*10)%7);
         }
     }
 
@@ -172,6 +175,32 @@ public class Controller {
         bottoni[5][4] = b54;
         bottoni[5][5] = b55;
         bottoni[5][6] = b56;
+    }
+
+    public void insert(int x) {
+        int colonna = x;
+
+        for(int i = 5; i >= 0; i--) {
+            if(bottoni[i][colonna].getText().equals("")) {
+                bottoni[i][colonna].setTextFill(Color.WHITE);
+                ImageView view;
+                if(turno.equals("Rosso")) {
+                    bottoni[i][colonna].setText("R");
+                    view = new ImageView(rosso);
+                    bottoni[i][colonna].setGraphic(view);
+                    turno = "Blu";
+                } else {
+                    bottoni[i][colonna].setText("B");
+                    view = new ImageView(blu);
+                    bottoni[i][colonna].setGraphic(view);
+                    turno = "Rosso";
+                }
+                view.setFitHeight(60);
+                view.setPreserveRatio(true);
+                bottoni[i][colonna].setDisable(true);
+                break;
+            }
+        }
     }
 
     public void insert(Button premuto) {
