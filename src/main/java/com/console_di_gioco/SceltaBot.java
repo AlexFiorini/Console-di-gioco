@@ -22,7 +22,6 @@ public class SceltaBot {
 
         view1 = new ImageView(utenteVSutente);
         bUvsU.setGraphic(view1);
-
         view2 = new ImageView(utenteVSbot);
         bUvsB.setGraphic(view2);
     }
