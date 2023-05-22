@@ -106,13 +106,15 @@ public class Controller {
     @FXML
     Button b56;
 
+    String bot = "BOT";
+    String utente = "UTENTE";
+
     public void onClick(ActionEvent e) {
         if(!filled) {
             init();
             filled = true;
             np.setDisable(true);
         }
-
         if(e.getSource() == np) {
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 7; j++) {
@@ -126,9 +128,10 @@ public class Controller {
             // TODO: Mostra classifica
         } else {
             insert((Button) e.getSource());
-            check();
-            np.setDisable(true);
-            insert((int) (random()*10)%7);
+            if(!check()) {
+                np.setDisable(true);
+                insert((int) (random()*10)%7);
+            }
         }
     }
 
@@ -177,32 +180,37 @@ public class Controller {
         bottoni[5][6] = b56;
     }
 
-    public void insert(int x) {
-        int colonna = x;
 
+    /**
+     * @param x: Colonna in cui inserire il disco, scelta casualmente dal computer
+     */
+    public void insert(int x) {
         for(int i = 5; i >= 0; i--) {
-            if(bottoni[i][colonna].getText().equals("")) {
-                bottoni[i][colonna].setTextFill(Color.WHITE);
+            if(bottoni[i][x].getText().equals("")) {
+                bottoni[i][x].setTextFill(Color.BLACK);
                 ImageView view;
                 if(turno.equals("Rosso")) {
-                    bottoni[i][colonna].setText("R");
+                    bottoni[i][x].setText(utente);
                     view = new ImageView(rosso);
-                    bottoni[i][colonna].setGraphic(view);
+                    bottoni[i][x].setGraphic(view);
                     turno = "Blu";
                 } else {
-                    bottoni[i][colonna].setText("B");
+                    bottoni[i][x].setText(bot);
                     view = new ImageView(blu);
-                    bottoni[i][colonna].setGraphic(view);
+                    bottoni[i][x].setGraphic(view);
                     turno = "Rosso";
                 }
                 view.setFitHeight(60);
                 view.setPreserveRatio(true);
-                bottoni[i][colonna].setDisable(true);
+                bottoni[i][x].setDisable(true);
                 break;
             }
         }
     }
 
+    /**
+     * @param premuto: Bottone premuto dall'utente
+     */
     public void insert(Button premuto) {
         int colonna = ((int) premuto.getId().charAt(2)) - 48;
 
@@ -211,12 +219,12 @@ public class Controller {
                 bottoni[i][colonna].setTextFill(Color.WHITE);
                 ImageView view;
                 if(turno.equals("Rosso")) {
-                    bottoni[i][colonna].setText("R");
+                    bottoni[i][colonna].setText(utente);
                     view = new ImageView(rosso);
                     bottoni[i][colonna].setGraphic(view);
                     turno = "Blu";
                 } else {
-                    bottoni[i][colonna].setText("B");
+                    bottoni[i][colonna].setText(bot);
                     view = new ImageView(blu);
                     bottoni[i][colonna].setGraphic(view);
                     turno = "Rosso";
@@ -229,19 +237,21 @@ public class Controller {
         }
     }
 
-    public void check() {
+    public boolean check() {
         for(int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!bottoni[i][j].getText().equals("")) {
                     if (i < 3) {
                         if (j < 4) {
                             if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
-                                if (bottoni[i][j].getText().equals("R")) {
-                                    System.out.println("Ha vinto il rosso");
+                                if (bottoni[i][j].getText().equals(utente)) {
+                                    System.out.println("Ha vinto l'utente");
                                     disable();
+                                    return true;
                                 } else {
-                                    System.out.println("Ha vinto il blu");
+                                    System.out.println("Ha vinto il bot");
                                     disable();
+                                    return true;
                                 }
                             }
                         }
@@ -249,41 +259,48 @@ public class Controller {
                     if (i > 2) {
                         if (j < 4) {
                             if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
-                                if (bottoni[i][j].getText().equals("R")) {
-                                    System.out.println("Ha vinto il rosso");
+                                if (bottoni[i][j].getText().equals(utente)) {
+                                    System.out.println("Ha vinto l'utente");
                                     disable();
+                                    return true;
                                 } else {
-                                    System.out.println("Ha vinto il blu");
+                                    System.out.println("Ha vinto il bot");
                                     disable();
+                                    return true;
                                 }
                             }
                         }
                     }
                     if (j < 4) {
                         if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
-                            if (bottoni[i][j].getText().equals("R")) {
-                                System.out.println("Ha vinto il rosso");
+                            if (bottoni[i][j].getText().equals(utente)) {
+                                System.out.println("Ha vinto l'utente");
                                 disable();
+                                return true;
                             } else {
-                                System.out.println("Ha vinto il blu");
+                                System.out.println("Ha vinto il bot");
                                 disable();
+                                return true;
                             }
                         }
                     }
                     if (i < 3) {
                         if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
-                            if (bottoni[i][j].getText().equals("R")) {
-                                System.out.println("Ha vinto il rosso");
+                            if (bottoni[i][j].getText().equals(utente)) {
+                                System.out.println("Ha vinto l'utente");
                                 disable();
+                                return true;
                             } else {
-                                System.out.println("Ha vinto il blu");
+                                System.out.println("Ha vinto il bot");
                                 disable();
+                                return true;
                             }
                         }
                     }
                 }
             }
         }
+        return false;
     }
 
     public void disable() {
