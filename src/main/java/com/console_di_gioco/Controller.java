@@ -44,23 +44,30 @@ public class Controller {
     void onClick(ActionEvent e) throws IOException {
 
         if(e.getSource() == bTris) {
-            selected = 1;
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("Modalità");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
         }
         else if(e.getSource() == bForza4) {
-            selected = 2;
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("Modalità");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
         }
         else if(e.getSource() == bBN) {
-            selected = 3;
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("Modalità");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
         }
-        else if(e.getSource() == b2048) {
-            selected = 4;
-        }
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
-        Stage stage = new Stage();
-        stage.setTitle("Scegli il bot");
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.show();
+
 
         Stage thisStage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         thisStage.setIconified(true);
