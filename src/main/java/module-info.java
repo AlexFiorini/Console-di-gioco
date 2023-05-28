@@ -10,6 +10,7 @@ module com.example.console_di_gioco {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
     opens com.example.console_di_gioco to javafx.fxml;
     exports com.battaglia_navale;

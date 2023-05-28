@@ -1,0 +1,182 @@
+package com.battaglia_navale;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+
+import java.util.Random;
+
+public class GameController {
+
+    @FXML
+    private GridPane playerBoard;
+
+    @FXML
+    private GridPane pcBoard;
+
+    @FXML
+    private Button resetButton;
+
+    private boolean playerTurn = true;
+    private boolean gameOver = false;
+
+    private final int BOARD_SIZE = 10;
+    private final int SHIP_SIZE = 3;
+
+    private int[][] playerBoardArray = new int[BOARD_SIZE][BOARD_SIZE];
+    private int[][] pcBoardArray = new int[BOARD_SIZE][BOARD_SIZE];
+
+    private Random random = new Random();
+
+    @FXML
+    public void initialize() {
+        resetButton.setOnAction(event -> resetGame());
+        initializeBoards();
+    }
+
+    private void initializeBoards() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                Button playerButton = new Button();
+                playerButton.setPrefSize(30, 30);
+                final int x = i;
+                final int y = j;
+                playerButton.setOnAction(event -> handlePlayerMove(x, y));
+                playerBoard.add(playerButton, i, j);
+
+                Button pcButton = new Button();
+                pcButton.setPrefSize(30, 30);
+                pcBoard.add(pcButton, i, j);
+            }
+        }
+        resetGame();
+    }
+
+    private void handlePlayerMove(int x, int y) {
+        if (!playerTurn || gameOver) {
+            return;
+        }
+
+        if (pcBoardArray[x][y] == 1) {
+            Button button = (Button) pcBoard.getChildren().get(y * BOARD_SIZE + x);
+            button.setStyle("-fx-background-color: red;");
+            pcBoardArray[x][y] = 2;
+
+            if (checkWin(pcBoardArray)) {
+                gameOver = true;
+                System.out.println("Player wins!");
+            }
+        } else {
+            Button button = (Button) pcBoard.getChildren().get(y * BOARD_SIZE + x);
+            button.setStyle("-fx-background-color: gray;");
+            playerTurn = false;
+            handlePCMove();
+        }
+    }
+
+    private void handlePCMove() {
+        if (gameOver) {
+            return;
+        }
+
+        int x, y;
+        do {
+            x = random.nextInt(BOARD_SIZE);
+            y = random.nextInt(BOARD_SIZE);
+        } while (playerBoardArray[x][y] != 0);
+
+        if (playerBoardArray[x][y] == 1) {
+            Button button = (Button) playerBoard.getChildren().get(y * BOARD_SIZE + x);
+            button.setStyle("-fx-background-color: red;");
+            playerBoardArray[x][y] = 2;
+
+            if (checkWin(playerBoardArray)) {
+                gameOver = true;
+                System.out.println("PC wins!");
+            } else {
+                playerTurn = true;
+            }
+        } else {
+            Button button = (Button) playerBoard.getChildren().get(y * BOARD_SIZE + x);
+            button.setStyle("-fx-background-color: gray;");
+            playerTurn = true;
+        }
+    }
+
+    private boolean checkWin(int[][] board) {
+        int count = 0;
+
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j] == 2) {
+                    count++;
+                }
+            }
+        }
+
+        return count == SHIP_SIZE;
+    }
+
+    private void resetGame() {
+        playerTurn = true;
+        gameOver = false;
+
+        clearBoard(playerBoard, playerBoardArray);
+        clearBoard(pcBoard, pcBoardArray);
+
+        placeShips(playerBoardArray);
+        placeShips(pcBoardArray);
+    }
+
+    private void clearBoard(GridPane gridPane, int[][] board) {
+        gridPane.getChildren().clear();
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                board[i][j] = 0;
+
+                Button button = new Button();
+                button.setPrefSize(30, 30);
+                final int x = i;
+                final int y = j;
+                button.setOnAction(event -> handlePlayerMove(x, y));
+                gridPane.add(button, i, j);
+            }
+        }
+    }
+
+    private void placeShips(int[][] board) {
+        for (int i = 0; i < SHIP_SIZE; i++) {
+            int x, y;
+            do {
+                x = random.nextInt(BOARD_SIZE);
+                y = random.nextInt(BOARD_SIZE);
+            } while (!isValidPlacement(board, x, y));
+
+            board[x][y] = 1;
+        }
+    }
+
+    private boolean isValidPlacement(int[][] board, int x, int y) {
+        if (board[x][y] == 1) {
+            return false;
+        }
+
+        if (x > 0 && board[x - 1][y] == 1) {
+            return false;
+        }
+
+        if (x < BOARD_SIZE - 1 && board[x + 1][y] == 1) {
+            return false;
+        }
+
+        if (y > 0 && board[x][y - 1] == 1) {
+            return false;
+        }
+
+        if (y < BOARD_SIZE - 1 && board[x][y + 1] == 1) {
+            return false;
+        }
+
+        return true;
+    }
+}
