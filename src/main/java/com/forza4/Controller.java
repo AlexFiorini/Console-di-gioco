@@ -12,6 +12,9 @@ import java.util.Objects;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Controller {
@@ -280,6 +283,7 @@ public class Controller {
             }
         }
         np.setDisable(false);
+        save_file();
     }
 
     private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
@@ -289,5 +293,18 @@ public class Controller {
         stage.setScene(new Scene(root, width, height));
         stage.setResizable(resiz);
         stage.show();
+    }
+
+    private void save_file() {
+        try {
+            FileWriter fw = new FileWriter("src\\sample\\save.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            contRosso += Integer.parseInt(contRosso + "");
+            contBlu += Integer.parseInt(contBlu + "");
+            bw.write(contRosso + "\n" + contBlu);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
     }
 }
