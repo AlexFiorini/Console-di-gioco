@@ -17,8 +17,8 @@
          <children>
             <Label fx:id="l1" prefHeight="30.0" prefWidth="100.0" text="Rosso" alignment="CENTER" />
             <Label fx:id="l2" prefHeight="30.0" prefWidth="100.0" text="Blu" GridPane.columnIndex="1" alignment="CENTER"/>
-            <Label fx:id="lRosso" prefHeight="50.0" prefWidth="100.0" GridPane.rowIndex="1" alignment="CENTER" />
-            <Label fx:id="lBlu" prefHeight="50.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" />
+            <Label fx:id="lRosso" prefHeight="50.0" prefWidth="100.0" text="a" GridPane.rowIndex="1" alignment="CENTER" />
+            <Label fx:id="lBlu" prefHeight="50.0" prefWidth="100.0" text="b" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" />
          </children>
       </GridPane>
    </children>
