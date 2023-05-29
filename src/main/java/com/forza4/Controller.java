@@ -2,11 +2,17 @@ package com.forza4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import java.util.Objects;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class Controller {
 
@@ -14,6 +20,8 @@ public class Controller {
     Image blu = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Blu.png")));
     public boolean filled = false;
     public Button[][] bottoni = new Button[6][7];
+    public int contRosso = 0;
+    public int contBlu = 0;
     String turno = "Rosso";
     @FXML
     Button np;
@@ -104,7 +112,7 @@ public class Controller {
     @FXML
     Button b56;
 
-    public void onClick(ActionEvent e) {
+    public void onClick(ActionEvent e) throws IOException {
         if(!filled) {
             init();
             filled = true;
@@ -121,11 +129,11 @@ public class Controller {
             }
             np.setDisable(true);
         } else if (e.getSource() == c){
-            // TODO: Mostra classifica
+            openWindow("Classifica.fxml", "Classifica", 200, 80, false);
         } else {
             insert((Button) e.getSource());
             check();
-            np.setDisable(true);
+            np.setDisable(false);
         }
     }
 
@@ -209,9 +217,11 @@ public class Controller {
                             if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals("R")) {
                                     System.out.println("Ha vinto il rosso");
+                                    contRosso++;
                                     disable();
                                 } else {
                                     System.out.println("Ha vinto il blu");
+                                    contBlu++;
                                     disable();
                                 }
                             }
@@ -222,9 +232,11 @@ public class Controller {
                             if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals("R")) {
                                     System.out.println("Ha vinto il rosso");
+                                    contRosso++;
                                     disable();
                                 } else {
                                     System.out.println("Ha vinto il blu");
+                                    contBlu++;
                                     disable();
                                 }
                             }
@@ -234,9 +246,11 @@ public class Controller {
                         if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
                             if (bottoni[i][j].getText().equals("R")) {
                                 System.out.println("Ha vinto il rosso");
+                                contRosso++;
                                 disable();
                             } else {
                                 System.out.println("Ha vinto il blu");
+                                contBlu++;
                                 disable();
                             }
                         }
@@ -245,9 +259,11 @@ public class Controller {
                         if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
                             if (bottoni[i][j].getText().equals("R")) {
                                 System.out.println("Ha vinto il rosso");
+                                contRosso++;
                                 disable();
                             } else {
                                 System.out.println("Ha vinto il blu");
+                                contBlu++;
                                 disable();
                             }
                         }
@@ -264,5 +280,14 @@ public class Controller {
             }
         }
         np.setDisable(false);
+    }
+
+    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resiz);
+        stage.show();
     }
 }
