@@ -297,7 +297,7 @@ public class Controller {
 
     private void save_file() {
         try {
-            FileWriter fw = new FileWriter("src\\sample\\save.txt");
+            FileWriter fw = new FileWriter(".\\src\\main\\java\\com\\forza4\\save.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             contRosso += Integer.parseInt(contRosso + "");
             contBlu += Integer.parseInt(contBlu + "");
