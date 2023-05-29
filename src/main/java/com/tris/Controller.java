@@ -2,12 +2,16 @@ package com.tris;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.text.MessageFormat;
 import java.util.Objects;
 
 public class Controller {
@@ -61,10 +65,17 @@ public class Controller {
             button6.setDisable(true);
             button7.setDisable(true);
             button8.setDisable(true);
+
             if(vincitore.equals("Nessuno")) {
-                System.out.println("Nessuno ha vinto");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Vincitore");
+                alert.setContentText("Nessuno ha vinto");
+                alert.showAndWait();
             } else {
-                System.out.println(vincitore + " ha vinto");
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("Vincitore");
+                alert1.setContentText(vincitore + " ha vinto");
+                alert1.showAndWait();
             }
             //TODO: Aggiungi leaderboard
 
