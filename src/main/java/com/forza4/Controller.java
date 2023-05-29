@@ -13,7 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -26,6 +28,7 @@ public class Controller {
     public int contRosso = 0;
     public int contBlu = 0;
     String turno = "Rosso";
+    public boolean started = false;
     @FXML
     Button np;
     @FXML
@@ -120,6 +123,30 @@ public class Controller {
             init();
             filled = true;
             np.setDisable(true);
+        }
+
+        if(!started) {
+            started = true;
+            try {
+                FileReader fr = new FileReader("src/main/java/com/forza4/save.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                if ((line = br.readLine()) != null) {
+                    contRosso = Integer.parseInt(line);
+                } else {
+                    contRosso = 0;
+                }
+                if ((line = br.readLine()) != null) {
+                    contBlu = Integer.parseInt(line);
+                } else {
+                    contBlu = 0;
+                }
+                br.close();
+                fr.close();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
 
         if(e.getSource() == np) {
@@ -225,11 +252,11 @@ public class Controller {
                                 if (bottoni[i][j].getText().equals("R")) {
                                     System.out.println("Ha vinto il rosso");
                                     contRosso++;
-                                    disable();
+                                    disable("Rosso");
                                 } else {
                                     System.out.println("Ha vinto il blu");
                                     contBlu++;
-                                    disable();
+                                    disable("Blu");
                                 }
                                 winnerFound = true; // Winner found, set the flag
                                 break; // Exit the inner loop
@@ -244,11 +271,11 @@ public class Controller {
                                 if (bottoni[i][j].getText().equals("R")) {
                                     System.out.println("Ha vinto il rosso");
                                     contRosso++;
-                                    disable();
+                                    disable("Rosso");
                                 } else {
                                     System.out.println("Ha vinto il blu");
                                     contBlu++;
-                                    disable();
+                                    disable("Blu");
                                 }
                                 winnerFound = true; // Winner found, set the flag
                                 break; // Exit the inner loop
@@ -262,11 +289,11 @@ public class Controller {
                             if (bottoni[i][j].getText().equals("R")) {
                                 System.out.println("Ha vinto il rosso");
                                 contRosso++;
-                                disable();
+                                disable("Rosso");
                             } else {
                                 System.out.println("Ha vinto il blu");
                                 contBlu++;
-                                disable();
+                                disable("Blu");
                             }
                             winnerFound = true; // Winner found, set the flag
                             break; // Exit the inner loop
@@ -279,11 +306,11 @@ public class Controller {
                             if (bottoni[i][j].getText().equals("R")) {
                                 System.out.println("Ha vinto il rosso");
                                 contRosso++;
-                                disable();
+                                disable("Rosso");
                             } else {
                                 System.out.println("Ha vinto il blu");
                                 contBlu++;
-                                disable();
+                                disable("Blu");
                             }
                             winnerFound = true; // Winner found, set the flag
                             break; // Exit the inner loop
@@ -299,14 +326,14 @@ public class Controller {
     }
 
 
-    public void disable() {
+    public void disable(String winner) {
         for(int i = 0; i < 6; i++) {
             for(int j = 0; j < 7; j++) {
                 bottoni[i][j].setDisable(true);
             }
         }
         np.setDisable(false);
-        save_file();
+        save_file(winner);
     }
 
     private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
@@ -318,12 +345,10 @@ public class Controller {
         stage.show();
     }
 
-    private void save_file() {
+    private void save_file(String winner) {
         try {
             FileWriter fw = new FileWriter(".\\src\\main\\java\\com\\forza4\\save.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            contRosso += Integer.parseInt(contRosso + "");
-            contBlu += Integer.parseInt(contBlu + "");
             bw.write(contRosso + "\n" + contBlu);
             bw.close();
         } catch (IOException e) {
