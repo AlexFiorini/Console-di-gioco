@@ -61,15 +61,13 @@ public class Controller {
             button6.setDisable(true);
             button7.setDisable(true);
             button8.setDisable(true);
-            Fine fine = new Fine();
             if(vincitore.equals("Nessuno")) {
-                fine.setVincitore(vincitore);
+                System.out.println("Nessuno ha vinto");
             } else {
-                fine.setVincitore("Ha vinto " + vincitore);
+                System.out.println(vincitore + " ha vinto");
             }
             //TODO: Aggiungi leaderboard
 
-            fine.start((Stage) button0.getScene().getWindow());
         }
         turno++;
     }
