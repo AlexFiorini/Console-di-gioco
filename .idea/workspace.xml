@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Realizzato tris finale, mancano ritocchi e leaderboard">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/Classifica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/save.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Classifica.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Fine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Finestra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tris/Fine.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -293,6 +285,17 @@
     <MESSAGE value="Modificata la Finestra" />
     <MESSAGE value="Realizzato tris finale, mancano ritocchi e leaderboard" />
     <option name="LAST_COMMIT_MESSAGE" value="Realizzato tris finale, mancano ritocchi e leaderboard" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tris/Controller.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

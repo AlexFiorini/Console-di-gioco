@@ -12,27 +12,27 @@ import javafx.scene.control.Label;
 public class Classifica implements Initializable {
 
     @FXML
-    Label lRosso;
+    Label lX;
     @FXML
-    Label lBlu;
+    Label lO;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        int contRosso = 0;
-        int contBlu = 0;
+        int contX = 0;
+        int cont0 = 0;
         try {
-            FileReader fr = new FileReader("src/main/java/com/forza4/save.txt");
+            FileReader fr = new FileReader("src/main/java/com/tris/save.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             if ((line = br.readLine()) != null) {
-                contRosso = Integer.parseInt(line);
+                contX = Integer.parseInt(line);
             } else {
-                contRosso = 0;
+                contX = 0;
             }
             if ((line = br.readLine()) != null) {
-                contBlu = Integer.parseInt(line);
+                cont0 = Integer.parseInt(line);
             } else {
-                contBlu = 0;
+                cont0 = 0;
             }
             br.close();
             fr.close();
@@ -40,8 +40,8 @@ public class Classifica implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        lRosso.setText(Integer.toString(contRosso));
-        lBlu.setText(Integer.toString(contBlu));
+        lX.setText(Integer.toString(contX));
+        lO.setText(Integer.toString(cont0));
     }
 }
 

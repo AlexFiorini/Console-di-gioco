@@ -2,6 +2,9 @@ package com.tris;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +19,7 @@ public class Controller {
     boolean started = false;
     int contX = 0;
     int contO = 0;
+
     String vincitore = "";
     @FXML
     Button button0;
@@ -35,6 +39,10 @@ public class Controller {
     Button button7;
     @FXML
     Button button8;
+    @FXML
+    Button np;
+    @FXML
+    Button c;
     Image croce = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Croce.png")));
     Image cerchio = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Cerchio.png")));
 
@@ -79,6 +87,13 @@ public class Controller {
             }
         }
 
+        if(event.getSource() == np) {
+            reset();
+            np.setDisable(true);
+        } else if (event.getSource() == c){
+            openWindow("Classifica.fxml", "Classifica", 200, 80, false);
+        }
+
         if(wincheck()){
             button0.setDisable(true);
             button1.setDisable(true);
@@ -89,7 +104,6 @@ public class Controller {
             button6.setDisable(true);
             button7.setDisable(true);
             button8.setDisable(true);
-            //TODO: Aggiungi leaderboard
         }
         turno++;
     }
@@ -175,6 +189,46 @@ public class Controller {
             return true;
         }
         return false;
+    }
+
+    public void reset() {
+        button0.setText("");
+        button1.setText("");
+        button2.setText("");
+        button3.setText("");
+        button4.setText("");
+        button5.setText("");
+        button6.setText("");
+        button7.setText("");
+        button8.setText("");
+
+        button0.setDisable(false);
+        button1.setDisable(false);
+        button2.setDisable(false);
+        button3.setDisable(false);
+        button4.setDisable(false);
+        button5.setDisable(false);
+        button6.setDisable(false);
+        button7.setDisable(false);
+        button8.setDisable(false);
+
+        button0.setGraphic(null);
+        button1.setGraphic(null);
+        button2.setGraphic(null);
+        button3.setGraphic(null);
+        button4.setGraphic(null);
+        button5.setGraphic(null);
+        button6.setGraphic(null);
+        button7.setGraphic(null);
+        button8.setGraphic(null);
+    }
+    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resiz);
+        stage.show();
     }
 
     private void save_file(String winner) {

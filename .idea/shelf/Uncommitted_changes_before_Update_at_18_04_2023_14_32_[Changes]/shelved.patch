@@ -1,0 +1,31 @@
+Index: src/main/resources/com/example/console_di_gioco/Battaglia-navale.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.*?>\r\n<?import javafx.scene.layout.*?>\r\n\r\n<AnchorPane prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/17.0.2-ea\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.console_di_gioco.Battaglia_Navale\">\r\n    <children>\r\n        <TableView prefHeight=\"545.0\" prefWidth=\"752.0\">\r\n            <columns>\r\n                <TableColumn prefWidth=\"75.0\" text=\"A\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"B\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"C\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"D\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"E\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"F\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"G\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"H\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"I\" />\r\n                <TableColumn prefWidth=\"75.0\" text=\"J\" />\r\n            </columns>\r\n        </TableView>\r\n    </children>\r\n</AnchorPane>\r\n
+===================================================================
+diff --git a/src/main/resources/com/example/console_di_gioco/Battaglia-navale.fxml b/src/main/resources/com/example/console_di_gioco/Battaglia-navale.fxml
+--- a/src/main/resources/com/example/console_di_gioco/Battaglia-navale.fxml	
++++ b/src/main/resources/com/example/console_di_gioco/Battaglia-navale.fxml	
+@@ -3,9 +3,9 @@
+ <?import javafx.scene.control.*?>
+ <?import javafx.scene.layout.*?>
+ 
+-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.console_di_gioco.Battaglia_Navale">
++<AnchorPane prefHeight="554.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.console_di_gioco.Battaglia_Navale">
+     <children>
+-        <TableView prefHeight="545.0" prefWidth="752.0">
++        <TableView layoutX="14.0" layoutY="24.0" prefHeight="530.0" prefWidth="680.0">
+             <columns>
+                 <TableColumn prefWidth="75.0" text="A" />
+                 <TableColumn prefWidth="75.0" text="B" />
+@@ -14,8 +14,8 @@
+                 <TableColumn prefWidth="75.0" text="E" />
+                 <TableColumn prefWidth="75.0" text="F" />
+                 <TableColumn prefWidth="75.0" text="G" />
+-                <TableColumn prefWidth="75.0" text="H" />
+-                <TableColumn prefWidth="75.0" text="I" />
++                <TableColumn text="H" />
++                <TableColumn prefWidth="70.0" text="I" />
+                 <TableColumn prefWidth="75.0" text="J" />
+             </columns>
+         </TableView>
