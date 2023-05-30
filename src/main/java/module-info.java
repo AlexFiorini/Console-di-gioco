@@ -16,4 +16,8 @@ module com.example.console_di_gioco {
     exports com.tris;
     opens com.tris_bot to javafx.fxml;
     exports com.tris_bot;
+    opens com.forza4 to javafx.fxml;
+    exports com.forza4;
+    opens com.forza4_bot to javafx.fxml;
+    exports com.forza4_bot;
 }

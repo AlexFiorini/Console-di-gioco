@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Alert;
 import java.io.IOException;
 import java.util.Objects;
 import com.battaglia_navale.BattleShip;
@@ -114,15 +114,55 @@ public class Controller {
             });
         }
         else if(e.getSource() == bForza4) {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SceltaBot.fxml"));
+            Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Modalità");
+            stage.setTitle("Scelta modalità");
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+
+            SceltaBot sceltaBotController = loader.getController();
+            sceltaBotController.setController(this);
+            stage.setOnHidden(windowEvent -> {
+                if (selected_mode == 1) {
+                    Parent root2 = null;
+                    FXMLLoader loader2;
+                    try {
+                        loader2 = new FXMLLoader(getClass().getResource("/com/forza4_bot/Finestra.fxml"));
+                        root2 = loader2.load();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    Stage stage2 = new Stage();
+                    stage2.setTitle("Forza 4");
+                    stage2.setScene(new Scene(root2));
+                    stage2.setResizable(false);
+                    stage2.show();
+                } else if (selected_mode == 2) {
+                    Parent root1 = null;
+                    try {
+                        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/forza4/Finestra.fxml")));
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    Stage stage1 = new Stage();
+                    stage1.setTitle("Forza 4");
+                    stage1.setScene(new Scene(root1));
+                    stage1.setResizable(false);
+                    stage1.show();
+                }
+            });
         }
         else if(e.getSource() == bBN) {
             BattleShip.main(new String[0]);
+        }
+        else if(e.getSource() == b2048) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("2048");
+            alert.setHeaderText("2048");
+            alert.setContentText("Gioco non ancora implementato");
+            alert.showAndWait();
         }
 
 
@@ -130,6 +170,3 @@ public class Controller {
         thisStage.setIconified(true);
     }
 }
-
-
-//
