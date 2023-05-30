@@ -3,6 +3,7 @@ package com.forza4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -250,11 +251,17 @@ public class Controller {
                                 bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) &&
                                 bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals("R")) {
-                                    System.out.println("Ha vinto il rosso");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il rosso!");
+                                    alert.showAndWait();
                                     contRosso++;
                                     disable("Rosso");
                                 } else {
-                                    System.out.println("Ha vinto il blu");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il blu!");
+                                    alert.showAndWait();
                                     contBlu++;
                                     disable("Blu");
                                 }
@@ -269,11 +276,17 @@ public class Controller {
                                 bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) &&
                                 bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals("R")) {
-                                    System.out.println("Ha vinto il rosso");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il rosso!");
+                                    alert.showAndWait();
                                     contRosso++;
                                     disable("Rosso");
                                 } else {
-                                    System.out.println("Ha vinto il blu");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il blu!");
+                                    alert.showAndWait();
                                     contBlu++;
                                     disable("Blu");
                                 }
@@ -287,11 +300,17 @@ public class Controller {
                             bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) &&
                             bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
                             if (bottoni[i][j].getText().equals("R")) {
-                                System.out.println("Ha vinto il rosso");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il rosso!");
+                                alert.showAndWait();
                                 contRosso++;
                                 disable("Rosso");
                             } else {
-                                System.out.println("Ha vinto il blu");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il blu!");
+                                alert.showAndWait();
                                 contBlu++;
                                 disable("Blu");
                             }
@@ -304,11 +323,17 @@ public class Controller {
                             bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) &&
                             bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
                             if (bottoni[i][j].getText().equals("R")) {
-                                System.out.println("Ha vinto il rosso");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il rosso!");
+                                alert.showAndWait();
                                 contRosso++;
                                 disable("Rosso");
                             } else {
-                                System.out.println("Ha vinto il blu");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il blu!");
+                                alert.showAndWait();
                                 contBlu++;
                                 disable("Blu");
                             }
