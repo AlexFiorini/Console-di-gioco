@@ -2,13 +2,24 @@ package com.forza4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
 import java.util.Objects;
 
 import static java.lang.Math.random;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Controller {
 
@@ -106,14 +117,40 @@ public class Controller {
     @FXML
     Button b56;
 
-    String bot = "BOT";
-    String utente = "UTENTE";
+    String bot = "B";
+    String Rosso = "R";
+    boolean started = false;
+    int contRosso = 0;
+    int contBlu = 0;
 
     public void onClick(ActionEvent e) {
         if(!filled) {
             init();
             filled = true;
             np.setDisable(true);
+        }
+        if(!started) {
+            started = true;
+            try {
+                FileReader fr = new FileReader("src/main/java/com/forza4/save.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                if ((line = br.readLine()) != null) {
+                    contRosso = Integer.parseInt(line);
+                } else {
+                    contRosso = 0;
+                }
+                if ((line = br.readLine()) != null) {
+                    contBlu = Integer.parseInt(line);
+                } else {
+                    contBlu = 0;
+                }
+                br.close();
+                fr.close();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         if(e.getSource() == np) {
             for (int i = 0; i < 6; i++) {
@@ -125,7 +162,11 @@ public class Controller {
             }
             np.setDisable(true);
         } else if (e.getSource() == c){
-            // TODO: Mostra classifica
+            try {
+                openWindow("Classifica.fxml", "Classifica", 200, 80, false);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         } else {
             insert((Button) e.getSource());
             if(!check()) {
@@ -190,7 +231,7 @@ public class Controller {
                 bottoni[i][x].setTextFill(Color.BLACK);
                 ImageView view;
                 if(turno.equals("Rosso")) {
-                    bottoni[i][x].setText(utente);
+                    bottoni[i][x].setText(Rosso);
                     bottoni[i][x].setTextFill(Color.WHITE);
                     view = new ImageView(rosso);
                     bottoni[i][x].setGraphic(view);
@@ -211,7 +252,7 @@ public class Controller {
     }
 
     /**
-     * @param premuto: Bottone premuto dall'utente
+     * @param premuto: Bottone premuto dalil Rosso
      */
     public void insert(Button premuto) {
         int colonna = ((int) premuto.getId().charAt(2)) - 48;
@@ -221,7 +262,7 @@ public class Controller {
                 bottoni[i][colonna].setTextFill(Color.WHITE);
                 ImageView view;
                 if(turno.equals("Rosso")) {
-                    bottoni[i][colonna].setText(utente);
+                    bottoni[i][colonna].setText(Rosso);
                     view = new ImageView(rosso);
                     bottoni[i][colonna].setGraphic(view);
                     turno = "Blu";
@@ -240,77 +281,120 @@ public class Controller {
     }
 
     public boolean check() {
-        for(int i = 0; i < 6; i++) {
+        boolean winnerFound = false; // Track if a winner is found
+
+        for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!bottoni[i][j].getText().equals("")) {
                     if (i < 3) {
                         if (j < 4) {
-                            if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
-                                if (bottoni[i][j].getText().equals(utente)) {
-                                    System.out.println("Ha vinto l'utente");
-                                    disable();
-                                    return true;
+                            if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) &&
+                                bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) &&
+                                bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
+                                if (bottoni[i][j].getText().equals("R")) {
+                                    System.out.println("Ha vinto il rosso");
+                                    contRosso++;
+                                    disable("Rosso");
                                 } else {
-                                    System.out.println("Ha vinto il bot");
-                                    disable();
-                                    return true;
+                                    System.out.println("Ha vinto il blu");
+                                    contBlu++;
+                                    disable("Blu");
                                 }
+                                winnerFound = true; // Winner found, set the flag
+                                break; // Exit the inner loop
                             }
                         }
                     }
                     if (i > 2) {
                         if (j < 4) {
-                            if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
-                                if (bottoni[i][j].getText().equals(utente)) {
-                                    System.out.println("Ha vinto l'utente");
-                                    disable();
-                                    return true;
+                            if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) &&
+                                bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) &&
+                                bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
+                                if (bottoni[i][j].getText().equals("R")) {
+                                    System.out.println("Ha vinto il rosso");
+                                    contRosso++;
+                                    disable("Rosso");
                                 } else {
-                                    System.out.println("Ha vinto il bot");
-                                    disable();
-                                    return true;
+                                    System.out.println("Ha vinto il blu");
+                                    contBlu++;
+                                    disable("Blu");
                                 }
+                                winnerFound = true; // Winner found, set the flag
+                                break; // Exit the inner loop
                             }
                         }
                     }
                     if (j < 4) {
-                        if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
-                            if (bottoni[i][j].getText().equals(utente)) {
-                                System.out.println("Ha vinto l'utente");
-                                disable();
-                                return true;
+                        if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) &&
+                            bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) &&
+                            bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
+                            if (bottoni[i][j].getText().equals("R")) {
+                                System.out.println("Ha vinto il rosso");
+                                contRosso++;
+                                disable("Rosso");
                             } else {
-                                System.out.println("Ha vinto il bot");
-                                disable();
-                                return true;
+                                System.out.println("Ha vinto il blu");
+                                contBlu++;
+                                disable("Blu");
                             }
+                            winnerFound = true; // Winner found, set the flag
+                            break; // Exit the inner loop
                         }
                     }
                     if (i < 3) {
-                        if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
-                            if (bottoni[i][j].getText().equals(utente)) {
-                                System.out.println("Ha vinto l'utente");
-                                disable();
-                                return true;
+                        if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) &&
+                            bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) &&
+                            bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
+                            if (bottoni[i][j].getText().equals("R")) {
+                                System.out.println("Ha vinto il rosso");
+                                contRosso++;
+                                disable("Rosso");
                             } else {
-                                System.out.println("Ha vinto il bot");
-                                disable();
-                                return true;
+                                System.out.println("Ha vinto il blu");
+                                contBlu++;
+                                disable("Blu");
                             }
+                            winnerFound = true; // Winner found, set the flag
+                            break; // Exit the inner loop
                         }
                     }
                 }
             }
+
+            if (winnerFound) {
+                break; // Exit the outer loop
+            }
         }
-        return false;
+        return winnerFound;
     }
 
-    public void disable() {
+    public void disable(String winner) {
         for(int i = 0; i < 6; i++) {
             for(int j = 0; j < 7; j++) {
                 bottoni[i][j].setDisable(true);
             }
         }
         np.setDisable(false);
+        save_file(winner);
+    }
+
+    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resiz);
+        stage.show();
+    }
+
+    private void save_file(String winner) {
+        try {
+            FileWriter fw = new FileWriter(".\\src\\main\\java\\com\\forza4\\save.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contRosso + "\n" + contBlu);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
     }
 }
