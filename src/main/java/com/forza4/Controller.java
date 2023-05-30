@@ -12,9 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
 
 import static java.lang.Math.random;
@@ -28,6 +26,7 @@ public class Controller {
     String turno = "Rosso";
     public int contU = 0;
     public int contB = 0;
+    boolean started = false;
     @FXML
     Button np;
     @FXML
@@ -126,6 +125,31 @@ public class Controller {
             filled = true;
             np.setDisable(true);
         }
+
+        if(!started) {
+            started = true;
+            try {
+                FileReader fr = new FileReader("src/main/java/com/forza4/save.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                if ((line = br.readLine()) != null) {
+                    contU = Integer.parseInt(line);
+                } else {
+                    contU = 0;
+                }
+                if ((line = br.readLine()) != null) {
+                    contB = Integer.parseInt(line);
+                } else {
+                    contB = 0;
+                }
+                br.close();
+                fr.close();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
 
         if(e.getSource() == np) {
             for (int i = 0; i < 6; i++) {
