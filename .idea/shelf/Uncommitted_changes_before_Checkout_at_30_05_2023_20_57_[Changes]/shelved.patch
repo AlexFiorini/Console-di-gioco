@@ -1,0 +1,15 @@
+Index: src/main/java/com/forza4/save.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>7\r\n2
+===================================================================
+diff --git a/src/main/java/com/forza4/save.txt b/src/main/java/com/forza4/save.txt
+--- a/src/main/java/com/forza4/save.txt	
++++ b/src/main/java/com/forza4/save.txt	
+@@ -1,2 +1,2 @@
+-7
+-2
+\ No newline at end of file
++0
++1
+\ No newline at end of file
