@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 public class Classifica implements Initializable {
 
     @FXML
-<<<<<<< HEAD
     Label lU;
     @FXML
     Label lB;
@@ -45,37 +44,3 @@ public class Classifica implements Initializable {
         lB.setText(Integer.toString(contB));
     }
 }
-=======
-    Label lRosso;
-    @FXML
-    Label lBlu;
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        int contRosso = 0;
-        int contBlu = 0;
-        try {
-                FileReader fr = new FileReader("src/main/java/com/forza4/save.txt");
-                BufferedReader br = new BufferedReader(fr);
-                String line;
-                if ((line = br.readLine()) != null) {
-                    contRosso = Integer.parseInt(line);
-                } else {
-                    contRosso = 0;
-                }
-                if ((line = br.readLine()) != null) {
-                    contBlu = Integer.parseInt(line);
-                } else {
-                    contBlu = 0;
-                }
-                br.close();
-                fr.close();
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        lRosso.setText(Integer.toString(contRosso));
-        lBlu.setText(Integer.toString(contBlu));
-    }
-}
->>>>>>> origin/Forza_4_bot

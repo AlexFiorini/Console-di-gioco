@@ -2,10 +2,19 @@ package com.forza4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 
 import static java.lang.Math.random;
@@ -17,6 +26,8 @@ public class Controller {
     public boolean filled = false;
     public Button[][] bottoni = new Button[6][7];
     String turno = "Rosso";
+    public int contU = 0;
+    public int contB = 0;
     @FXML
     Button np;
     @FXML
@@ -109,12 +120,13 @@ public class Controller {
     String bot = "BOT";
     String utente = "UTENTE";
 
-    public void onClick(ActionEvent e) {
+    public void onClick(ActionEvent e) throws IOException {
         if(!filled) {
             init();
             filled = true;
             np.setDisable(true);
         }
+
         if(e.getSource() == np) {
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 7; j++) {
@@ -125,7 +137,7 @@ public class Controller {
             }
             np.setDisable(true);
         } else if (e.getSource() == c){
-            // TODO: Mostra classifica
+            openWindow("Classifica.fxml", "Classifica", 200, 80, false);
         } else {
             insert((Button) e.getSource());
             if(!check()) {
@@ -245,11 +257,21 @@ public class Controller {
                         if (j < 4) {
                             if (bottoni[i][j].getText().equals(bottoni[i + 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals(utente)) {
-                                    System.out.println("Ha vinto l'utente");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Hai vinto!");
+                                    alert.showAndWait();
+                                    contU++;
+                                    save_file(String.valueOf(bottoni[i][j]));
                                     disable();
                                     return true;
                                 } else {
-                                    System.out.println("Ha vinto il bot");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il bot!");
+                                    alert.showAndWait();
+                                    contB++;
+                                    save_file(String.valueOf(bottoni[i][j]));
                                     disable();
                                     return true;
                                 }
@@ -260,11 +282,21 @@ public class Controller {
                         if (j < 4) {
                             if (bottoni[i][j].getText().equals(bottoni[i - 1][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i - 2][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i - 3][j + 3].getText())) {
                                 if (bottoni[i][j].getText().equals(utente)) {
-                                    System.out.println("Ha vinto l'utente");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Hai vinto!");
+                                    alert.showAndWait();
+                                    contU++;
+                                    save_file(String.valueOf(bottoni[i][j]));
                                     disable();
                                     return true;
                                 } else {
-                                    System.out.println("Ha vinto il bot");
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Vincitore");
+                                    alert.setContentText("Ha vinto il bot!");
+                                    alert.showAndWait();
+                                    contB++;
+                                    save_file(String.valueOf(bottoni[i][j]));
                                     disable();
                                     return true;
                                 }
@@ -274,11 +306,21 @@ public class Controller {
                     if (j < 4) {
                         if (bottoni[i][j].getText().equals(bottoni[i][j + 1].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 2].getText()) && bottoni[i][j].getText().equals(bottoni[i][j + 3].getText())) {
                             if (bottoni[i][j].getText().equals(utente)) {
-                                System.out.println("Ha vinto l'utente");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Hai vinto!");
+                                alert.showAndWait();
+                                contU++;
+                                save_file(String.valueOf(bottoni[i][j]));
                                 disable();
                                 return true;
                             } else {
-                                System.out.println("Ha vinto il bot");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il bot!");
+                                alert.showAndWait();
+                                contB++;
+                                save_file(String.valueOf(bottoni[i][j]));
                                 disable();
                                 return true;
                             }
@@ -287,11 +329,19 @@ public class Controller {
                     if (i < 3) {
                         if (bottoni[i][j].getText().equals(bottoni[i + 1][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 2][j].getText()) && bottoni[i][j].getText().equals(bottoni[i + 3][j].getText())) {
                             if (bottoni[i][j].getText().equals(utente)) {
-                                System.out.println("Ha vinto l'utente");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Hai vinto!");
+                                alert.showAndWait();
+                                contU++;
                                 disable();
                                 return true;
                             } else {
-                                System.out.println("Ha vinto il bot");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Vincitore");
+                                alert.setContentText("Ha vinto il bot!");
+                                alert.showAndWait();
+                                contB++;
                                 disable();
                                 return true;
                             }
@@ -311,4 +361,24 @@ public class Controller {
         }
         np.setDisable(false);
     }
+    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resiz);
+        stage.show();
+    }
+
+    private void save_file(String winner) {
+        try {
+            FileWriter fw = new FileWriter(".\\src\\main\\java\\com\\forza4\\save.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contU + "\n" + contB);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
