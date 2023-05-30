@@ -47,22 +47,12 @@ public class Controller {
     Image croce = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Croce.png")));
     Image cerchio = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Cerchio.png")));
 
-    public void onClick(ActionEvent event) throws Exception {
-        Button btn = (Button) event.getSource();
-        btn.setTextFill(Color.WHITE);
-        ImageView view;
-        if(turno%2 == 0){
-            btn.setText("X");
-            view = new ImageView(croce);
-
-        }else{
-            btn.setText("O");
-            view = new ImageView(cerchio);
+    public void onClick(ActionEvent e) throws Exception {
+        Button btn = (Button) e.getSource();
+        if(e.getSource()!=np && e.getSource()!=c) {
+            btn.setTextFill(Color.WHITE);
         }
-        view.setFitHeight(80);
-        view.setPreserveRatio(true);
-        btn.setGraphic(view);
-        btn.setDisable(true);
+        ImageView view;
 
         if(!started) {
             started = true;
@@ -89,41 +79,50 @@ public class Controller {
             }
         }
 
-        if(event.getSource() == np) {
+        if(e.getSource() == np) {
             reset();
-            np.setDisable(true);
-        } else if (event.getSource() == c){
-            openWindow("Classifica.fxml", "Classifica", 200, 80, false);
-        }
+        } else if (e.getSource() == c){
+            openWindow();
+        } else {
+            if(turno%2 == 0){
+                btn.setText("X");
+                view = new ImageView(croce);
 
-
-        if(wincheck()){
-            button0.setDisable(true);
-            button1.setDisable(true);
-            button2.setDisable(true);
-            button3.setDisable(true);
-            button4.setDisable(true);
-            button5.setDisable(true);
-            button6.setDisable(true);
-            button7.setDisable(true);
-            button8.setDisable(true);
-            if(vincitore.equals("Nessuno")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Vincitore");
-                alert.setContentText("Nessuno ha vinto");
-                alert.showAndWait();
-            } else {
-                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-                alert1.setTitle("Vincitore");
-                alert1.setContentText(vincitore + " ha vinto");
-                alert1.showAndWait();
+            }else{
+                btn.setText("O");
+                view = new ImageView(cerchio);
             }
+            view.setFitHeight(80);
+            view.setPreserveRatio(true);
+            btn.setGraphic(view);
+            btn.setDisable(true);
+            if(wincheck()){
+                button0.setDisable(true);
+                button1.setDisable(true);
+                button2.setDisable(true);
+                button3.setDisable(true);
+                button4.setDisable(true);
+                button5.setDisable(true);
+                button6.setDisable(true);
+                button7.setDisable(true);
+                button8.setDisable(true);
+                if(vincitore.equals("Nessuno")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Vincitore");
+                    alert.setContentText("Nessuno ha vinto");
+                    alert.showAndWait();
+                } else {
+                    Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                    alert1.setTitle("Vincitore");
+                    alert1.setContentText(vincitore + " ha vinto");
+                    alert1.showAndWait();
+                }
+            }
+            turno++;
         }
-        turno++;
     }
 
     public boolean wincheck(){
-        //TODO: Aggiungi schermata vincitore
 
         if(button0.getText().equals(button1.getText()) && button1.getText().equals(button2.getText()) && !button0.getText().equals("")){
             vincitore = button0.getText();
@@ -132,7 +131,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button3.getText().equals(button4.getText()) && button4.getText().equals(button5.getText()) && !button3.getText().equals("")){
             vincitore = button3.getText();
@@ -141,7 +140,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button6.getText().equals(button7.getText()) && button7.getText().equals(button8.getText()) && !button6.getText().equals("")){
             vincitore = button6.getText();
@@ -150,7 +149,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button0.getText().equals(button3.getText()) && button3.getText().equals(button6.getText()) && !button0.getText().equals("")){
             vincitore = button0.getText();
@@ -159,7 +158,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button1.getText().equals(button4.getText()) && button4.getText().equals(button7.getText()) && !button1.getText().equals("")){
             vincitore = button1.getText();
@@ -168,7 +167,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button2.getText().equals(button5.getText()) && button5.getText().equals(button8.getText()) && !button2.getText().equals("")){
             vincitore = button2.getText();
@@ -177,7 +176,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button0.getText().equals(button4.getText()) && button4.getText().equals(button8.getText()) && !button0.getText().equals("")){
             vincitore = button0.getText();
@@ -186,7 +185,7 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(button2.getText().equals(button4.getText()) && button4.getText().equals(button6.getText()) && !button2.getText().equals("")){
             vincitore = button2.getText();
@@ -195,11 +194,11 @@ public class Controller {
             }else{
                 contO++;
             }
-            save_file(vincitore);
+            save_file();
             return true;
         } else if(turno == 8){
             vincitore = "Nessuno";
-            save_file(vincitore);
+            save_file();
             return true;
         }
         return false;
@@ -235,17 +234,18 @@ public class Controller {
         button6.setGraphic(null);
         button7.setGraphic(null);
         button8.setGraphic(null);
+        turno = 0;
     }
-    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+    private void openWindow() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Classifica.fxml")));
         Stage stage = new Stage();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, width, height));
-        stage.setResizable(resiz);
+        stage.setTitle("Classifica");
+        stage.setScene(new Scene(root, 200, 80));
+        stage.setResizable(false);
         stage.show();
     }
 
-    private void save_file(String winner) {
+    private void save_file() {
         try {
             FileWriter fw = new FileWriter(".\\src\\main\\java\\com\\tris\\save.txt");
             BufferedWriter bw = new BufferedWriter(fw);

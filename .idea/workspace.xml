@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Classifica">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Aggiunto listener ai bottoni aggiunti e poi sistemata nuova partita">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_05_2023_15_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_05_2023_15_52__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_14_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_14_06__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_14_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_14_11__Changes_.xml" afterDir="false" />
@@ -14,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_15_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2023_15_06__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_14_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_14_32__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/save.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
@@ -307,7 +305,8 @@
     <MESSAGE value="Modificata la Finestra" />
     <MESSAGE value="Realizzato tris finale, mancano ritocchi e leaderboard" />
     <MESSAGE value="Classifica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classifica" />
+    <MESSAGE value="Aggiunto listener ai bottoni aggiunti e poi sistemata nuova partita" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto listener ai bottoni aggiunti e poi sistemata nuova partita" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
