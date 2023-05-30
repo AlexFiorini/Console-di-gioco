@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com.battaglia_navale</groupId>
     <artifactId>Console_di_Gioco</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Console_di_Gioco</name>
@@ -164,7 +164,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.console_di_gioco/com.console_di_gioco.HelloApplication
+                            <mainClass>com.battaglia_navale/com.battaglia_navale.BattleShip
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

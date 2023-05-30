@@ -1,4 +1,4 @@
-module com.example.console_di_gioco {
+module com.battaglia_navale {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -12,7 +12,6 @@ module com.example.console_di_gioco {
     requires com.almasb.fxgl.all;
     requires javafx.graphics;
 
-    opens com.example.console_di_gioco to javafx.fxml;
     exports com.battaglia_navale;
     opens com.battaglia_navale to javafx.fxml;
 }
