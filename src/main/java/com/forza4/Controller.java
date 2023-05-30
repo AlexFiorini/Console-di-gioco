@@ -191,11 +191,13 @@ public class Controller {
                 ImageView view;
                 if(turno.equals("Rosso")) {
                     bottoni[i][x].setText(utente);
+                    bottoni[i][x].setTextFill(Color.WHITE);
                     view = new ImageView(rosso);
                     bottoni[i][x].setGraphic(view);
                     turno = "Blu";
                 } else {
                     bottoni[i][x].setText(bot);
+                    bottoni[i][x].setTextFill(Color.WHITE);
                     view = new ImageView(blu);
                     bottoni[i][x].setGraphic(view);
                     turno = "Rosso";

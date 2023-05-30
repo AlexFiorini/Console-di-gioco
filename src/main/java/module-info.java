@@ -1,5 +1,5 @@
 module com.example.console_di_gioco {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
 
