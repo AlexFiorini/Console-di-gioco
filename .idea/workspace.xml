@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="">
+    <list default="true" id="ff174292-e5bd-4389-8b22-1198547defe5" name="Changes" comment="Realizzato tris finale, mancano ritocchi e leaderboard">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/Classifica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tris/save.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Classifica.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Fine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Finestra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tris/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tris/Fine.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tris/Finestra.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,19 +121,6 @@
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tris.Main" />
       <module name="tris" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="tris" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="tris" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
