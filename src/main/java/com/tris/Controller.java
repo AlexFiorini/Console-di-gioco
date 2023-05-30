@@ -2,15 +2,21 @@ package com.tris;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Controller {
     int turno = 0;
+
     String vincitore = "";
     @FXML
     Button button0;
@@ -30,6 +36,10 @@ public class Controller {
     Button button7;
     @FXML
     Button button8;
+    @FXML
+    Button np;
+    @FXML
+    Button c;
 
     Button[][] matrix = new Button[3][3];
     char[][] board = new char[3][3];
@@ -62,6 +72,20 @@ public class Controller {
         if(vincitore.equals("Nessuno")) {
             System.out.println("Draw");
         }
+
+        if(event.getSource() == np) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 7; j++) {
+                    bottoni[i][j].setText("");
+                    bottoni[i][j].setGraphic(null);
+                    bottoni[i][j].setDisable(false);
+                }
+            }
+            np.setDisable(true);
+        } else if (event.getSource() == c){
+            openWindow("Classifica.fxml", "Classifica", 200, 80, false);
+        }
+
     }
 
     private void creaMatrice() {
@@ -236,4 +260,13 @@ public class Controller {
         }
         return false;
     }
+    private void openWindow(String fileFxml, String title, int width, int height, boolean resiz) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fileFxml));
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, width, height));
+        stage.setResizable(resiz);
+        stage.show();
+    }
+
 }
