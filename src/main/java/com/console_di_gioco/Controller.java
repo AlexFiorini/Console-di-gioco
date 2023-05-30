@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import com.battaglia_navale.BattleShip;
 
 public class Controller {
 
@@ -24,7 +25,8 @@ public class Controller {
     public Button bForza4 = new Button();
     public Button bBN = new Button();
     public Button b2048 = new Button();
-    private int selected = 0;
+    public int selected_mode = 0; //Bot = 1, Utente = 2
+    public int selected_diff = 0; //Facile = 1, Difficile = 3
 
     void InitImage()
     {
@@ -45,6 +47,7 @@ public class Controller {
 
         if(e.getSource() == bTris) {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
+            //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/tris/Finestra.fxml")));
             Stage stage = new Stage();
             stage.setTitle("Modalità");
             stage.setScene(new Scene(root));
@@ -60,12 +63,7 @@ public class Controller {
             stage.show();
         }
         else if(e.getSource() == bBN) {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SceltaBot.fxml")));
-            Stage stage = new Stage();
-            stage.setTitle("Modalità");
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.show();
+            BattleShip.main(new String[0]);
         }
 
 
