@@ -12,7 +12,7 @@ module com.example.console_di_gioco {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
-    opens tris to javafx.fxml;
+
     exports com.tris;
     opens com.tris to javafx.fxml;
 }

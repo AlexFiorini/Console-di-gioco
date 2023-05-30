@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -94,6 +95,7 @@ public class Controller {
             openWindow("Classifica.fxml", "Classifica", 200, 80, false);
         }
 
+
         if(wincheck()){
             button0.setDisable(true);
             button1.setDisable(true);
@@ -104,6 +106,17 @@ public class Controller {
             button6.setDisable(true);
             button7.setDisable(true);
             button8.setDisable(true);
+            if(vincitore.equals("Nessuno")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Vincitore");
+                alert.setContentText("Nessuno ha vinto");
+                alert.showAndWait();
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("Vincitore");
+                alert1.setContentText(vincitore + " ha vinto");
+                alert1.showAndWait();
+            }
         }
         turno++;
     }

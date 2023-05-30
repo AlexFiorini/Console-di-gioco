@@ -7,8 +7,8 @@
    <top>
       <Pane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="NuovaPartita" layoutX="150.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Nuova partita" />
-            <Button fx:id="Classifica" layoutX="350.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Classifica" />
+            <Button fx:id="np" layoutX="150.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Nuova partita" />
+            <Button fx:id="c" layoutX="350.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Classifica" />
          </children>
       </Pane>
    </top>
