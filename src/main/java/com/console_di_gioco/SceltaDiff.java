@@ -12,21 +12,25 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import com.console_di_gioco.ModeSelectedCallback;
+import com.console_di_gioco.DifficultySelectedCallback;
 
-public class SceltaBot implements Initializable {
+public class SceltaDiff implements Initializable {
 
-    Image utenteVSutente = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utenteVSutente.jpg")));
-    Image utenteVSbot = new Image(Objects.requireNonNull(getClass().getResourceAsStream("utenteVSbot.jpg")));
-    private ModeSelectedCallback modeSelectedCallback;
+    Image Diff = new Image(Objects.requireNonNull(getClass().getResourceAsStream("difficult.jpg")));
+    Image Easy = new Image(Objects.requireNonNull(getClass().getResourceAsStream("easy.jpg")));
+    private DifficultySelectedCallback difficultySelectedCallback;
+
     @FXML
-    Button bUvsU;
+    Button Facile;
     @FXML
-    Button bUvsB;
+    Button Difficile;
     @FXML
     AnchorPane sfondo;
     private Controller controller;
 
+    public void setDifficultySelectedCallback(DifficultySelectedCallback callback) {
+        this.difficultySelectedCallback = callback;
+    }
     public void setController(Controller controller) {
         this.controller = controller;
     }
@@ -35,10 +39,10 @@ public class SceltaBot implements Initializable {
     {
         ImageView view1, view2;
 
-        view1 = new ImageView(utenteVSutente);
-        bUvsU.setGraphic(view1);
-        view2 = new ImageView(utenteVSbot);
-        bUvsB.setGraphic(view2);
+        view1 = new ImageView(Easy);
+        Facile.setGraphic(view1);
+        view2 = new ImageView(Diff);
+        Difficile.setGraphic(view2);
     }
 
     @Override
@@ -47,17 +51,13 @@ public class SceltaBot implements Initializable {
     }
 
     public void onClick(ActionEvent e){
-        if(e.getSource() == bUvsU) {
-            controller.selected_mode = 2;
+        if(e.getSource() == Facile) {
+            controller.selected_diff = 1;
             sfondo.getScene().getWindow().hide();
         }
-        else if(e.getSource() == bUvsB) {
-            controller.selected_mode = 1;
+        else if(e.getSource() == Difficile) {
+            controller.selected_diff = 2;
             sfondo.getScene().getWindow().hide();
         }
-    }
-
-    public void setModeSelectedCallback(ModeSelectedCallback callback) {
-        this.modeSelectedCallback = callback;
     }
 }

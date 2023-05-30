@@ -12,4 +12,8 @@ module com.example.console_di_gioco {
 
     opens com.console_di_gioco to javafx.fxml;
     exports com.console_di_gioco;
+    opens com.tris to javafx.fxml;
+    exports com.tris;
+    opens com.tris_bot to javafx.fxml;
+    exports com.tris_bot;
 }
